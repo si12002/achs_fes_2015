@@ -6,12 +6,17 @@ describe "Static pages" do
 
     it "should have the content 'AchsFes2015'" do
       visit '/static_pages/home'
-      expect(page).to have_content('AchsFes2015')
+      expect(page).to have_content('青商祭2015')
     end
 
-    it "should have the title 'Home'" do
+    it "should have the base title" do
       visit '/static_pages/home'
-      expect(page).to have_title("AchsFes2015 | Home")
+      expect(page).to have_title("青商祭2015")
+    end
+
+    it "should not have a custom page title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title('| Home')
     end
   end
 
@@ -19,12 +24,12 @@ describe "Static pages" do
 
     it "should have the content 'About Us'" do
       visit '/static_pages/about'
-      expect(page).to have_content('About Us')
+      expect(page).to have_content('このアプリについて')
     end
 
-    it "should have the title 'About Us'" do
+    it "should not have a custom page title" do
       visit '/static_pages/about'
-      expect(page).to have_title("AchsFes2015 | About Us")
+      expect(page).not_to have_title("| About Us")
     end
 
   end
