@@ -1,6 +1,11 @@
 AchsFes2015::Application.routes.draw do
   root 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
+  match '/disp_3rd', to: 'static_pages#disp_3rd', via: 'get'
+  match '/disp_2rd', to: 'static_pages#disp_2rd', via: 'get'
+  match '/disp_1rd', to: 'static_pages#disp_1rd', via: 'get'
+  match '/disp_cul', to: 'static_pages#disp_cul', via: 'get'
+  match '/disp_pta', to: 'static_pages#disp_pta', via: 'get'
   match '/stage', to: 'static_pages#stage', via: 'get'
   match '/map', to: 'static_pages#map', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.

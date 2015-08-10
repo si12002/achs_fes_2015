@@ -10,7 +10,14 @@
 
 <h2>青商祭プログラム</h2>
 <ul>
-<li><%= link_to "展示", "#" %></li>
+<li>展示</li>
+	<ul>
+		<li><%= link_to "3学年模擬店", disp_3rd_path %></li>
+		<li><%= link_to "2学年展示", disp_2rd_path %></li>
+		<li><%= link_to "1学年展示", disp_1rd_path %></li>
+		<li><%= link_to "文化部展示", disp_cul_path %></li>
+		<li><%= link_to "PTA", disp_pta_path %></li>
+	</ul>
 <li><%= link_to "ステージ発表", stage_path %></li>
 <li><%= link_to "校内マップ", map_path %></li>
 </ul>
