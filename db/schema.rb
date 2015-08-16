@@ -38,4 +38,6 @@ ActiveRecord::Schema.define(version: 20150816071427) do
     t.integer  "homeroom_id"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+
 end
