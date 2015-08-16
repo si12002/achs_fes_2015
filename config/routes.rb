@@ -1,5 +1,6 @@
 AchsFes2015::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   root 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/disp_3rd', to: 'static_pages#disp_3rd', via: 'get'
@@ -9,6 +10,8 @@ AchsFes2015::Application.routes.draw do
   match '/disp_pta', to: 'static_pages#disp_pta', via: 'get'
   match '/stage', to: 'static_pages#stage', via: 'get'
   match '/map', to: 'static_pages#map', via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
