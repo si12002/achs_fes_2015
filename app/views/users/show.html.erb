@@ -1,6 +1,9 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, "マイページ") %>
 <h1>
 	<%= gravatar_for @user %><%= @user.name %>
 </h1>
 
 <%= @user.name %>, <%= @user.email %> (3<%= @user.homeroom_id %>HR)
+
+
+<%= link_to "Settings", edit_user_path(@user) %>
