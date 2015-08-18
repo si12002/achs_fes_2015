@@ -2,5 +2,10 @@
 	<ul data-role="listview">
 		<li><%= link_to "ホーム", root_path %></li>
 		<li><%= link_to "このアプリについて", about_path %></li>
+		<% if signed_in? %>
+			<li><%= link_to "ログアウト", signout_path, method: "delete" %></li>
+		<% else %>
+			<li><%= link_to "ログイン", signin_path %></li>
+		<% end %>
 	</ul>
 </div>
