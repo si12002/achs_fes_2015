@@ -1,4 +1,3 @@
-<h1>青商祭2015</h1>
 <% if signed_in? %>
 
 <p>ようこそ、<%= current_user.name %> さん</p>
@@ -9,22 +8,24 @@
 </ul>
 
 <% else %>
+<h1>青商祭2015</h1>
 <p>
     2015年のテーマは
     『青商乱舞〜祭の藍てぃー革命や！！〜』です。
 </p>
 
 <h2>青商祭プログラム</h2>
-<ul>
-<li>展示</li>
-	<ul>
+<div data-role="collapsible">
+	<h3>展示</h3>
+	<ul data-role="listview">
 		<li><%= link_to "3学年模擬店", disp_3rd_path %></li>
 		<li><%= link_to "2学年展示", disp_2rd_path %></li>
 		<li><%= link_to "1学年展示", disp_1rd_path %></li>
 		<li><%= link_to "文化部展示", disp_cul_path %></li>
 		<li><%= link_to "PTA", disp_pta_path %></li>
 	</ul>
-<li><%= link_to "ステージ発表", stage_path %></li>
-<li><%= link_to "校内マップ", map_path %></li>
-</ul>
+	</div>
+
+<%= link_to "ステージ発表", stage_path, class: "ui-btn" %>
+<%= link_to "校内マップ", map_path, class: "ui-btn" %>
 <% end %>
