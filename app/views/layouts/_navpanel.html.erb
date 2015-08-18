@@ -1,8 +1,8 @@
 <div data-role="panel" id="navpanel" data-position="right" data-display="overlay">
 	<ul data-role="listview">
 		<% if signed_in? %>
-			<li><%= link_to "マイページ", current_user %></li>
-			<li><%= link_to "プロフィール編集", edit_user_path(@user) %></li>
+			<li><%= link_to "マイプロフィール", current_user %></li>
+			<li><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
 			<li><%= link_to "ログアウト", signout_path, method: "delete" %></li>
 		<% else %>
 			<li><%= link_to "ホーム", root_path %></li>

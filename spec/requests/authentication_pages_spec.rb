@@ -30,10 +30,11 @@ describe "Authentication" do
       		end
 
       		it { should have_title("マイページ") }
-      		# it { should have_link('Profile', href: user_path(user)) }
-      		it { should have_link('Settings',    href: edit_user_path(user)) }
+          # it { should have_link('模擬店一覧', href: users_path) }
+      		# it { should have_link('マイページ', href: user_path(user)) }
+      		it { should have_link('プロフィール編集', href: edit_user_path(user)) }
           it { should have_link('ログアウト', href: signout_path) }
-      		it { should_not have_link('Sign in', href: signin_path) }
+      		it { should_not have_link('ログイン', href: signin_path) }
     	
     		describe "followed by signout" do
         		before { click_link "ログアウト" }
@@ -49,6 +50,11 @@ describe "Authentication" do
         describe "in the Users controller" do
           describe "visiting the edit page" do
             before { visit edit_user_path(user) }
+            it { should have_title('ログイン') }
+          end
+
+          describe "visiting the user index" do
+            before { visit users_path }
             it { should have_title('ログイン') }
           end
 

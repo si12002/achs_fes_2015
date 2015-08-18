@@ -1,0 +1,11 @@
+<% provide(:title, '模擬店一覧') %>
+<h1>模擬店一覧</h1>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= gravatar_for user %>
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>

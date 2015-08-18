@@ -1,9 +1,5 @@
 <div data-role="header">
-<% if signed_in? %>
-	<%= link_to "マイページ", current_user %>
-<% else %>
 	<%= link_to "ホーム", root_path %>
-<% end %>
 <h1><%= full_title(yield(:title)) %></h1>
 
 <%= link_to "メニュー", "#navpanel" %>
