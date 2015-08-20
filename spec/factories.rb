@@ -4,7 +4,19 @@ FactoryGirl.define do
     email    "seisho31@seisho.jp"
     password "seisho31"
     password_confirmation "seisho31"
-    homeroom_id 1
+    homeroom
+  end
+
+  factory :homeroom do
+  	shop_name "Maeda Store"
+  	content "hello"
+  	menu "sushi 100yen"
+  end
+
+  factory :post do
+  	title "takoyaki 150yen"
+  	content "takoyaki 200yen -> 150yen"
+  	homeroom
   end
 end
 

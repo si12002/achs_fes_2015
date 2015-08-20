@@ -9,5 +9,6 @@ describe Homeroom do
 	subject { @homeroom }
 
   	it { should respond_to(:users) }
+  	it { should respond_to(:posts) }
 
 end

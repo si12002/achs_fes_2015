@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816071427) do
+ActiveRecord::Schema.define(version: 20150820021556) do
 
   create_table "homerooms", force: true do |t|
     t.string   "shop_name"
     t.text     "content"
     t.text     "menu"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "homeroom_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
