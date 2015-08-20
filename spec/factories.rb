@@ -4,6 +4,7 @@ FactoryGirl.define do
     email    "seisho31@seisho.jp"
     password "seisho31"
     password_confirmation "seisho31"
+    homeroom_id 1
   end
 end
 

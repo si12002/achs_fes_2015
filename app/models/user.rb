@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  belongs_to :homeroom
+  validates :homeroom_id, presence: true
+
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
   	validates :name, presence: true, length: { maximum: 50 }

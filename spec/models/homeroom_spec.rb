@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe Homeroom do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+	before do
+    	@homeroom = Homeroom.new(shop_name: "seisho31shop", content: "nice", menu: "rice 100yen")
+	end
+
+	subject { @homeroom }
+
+  	it { should respond_to(:users) }
+
 end

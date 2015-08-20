@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before do
-  	@user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
+  	@user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar", homeroom_id: 1)
   end
 
 	subject { @user }
@@ -15,6 +15,9 @@ describe User do
 	it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
 	it { should respond_to(:authenticate) }
+  it { should respond_to(:homeroom_id) }
+  it { should respond_to(:homeroom) }
+  its(:homeroom) { should eq homeroom }
 
 	it { should be_valid }
 
@@ -99,6 +102,12 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  # 関連づけのテスト
+  describe "when homeroom_id is not present" do
+    before { @user.homeroom_id = nil }
+    it { should_not be_valid }
   end
 
 end
