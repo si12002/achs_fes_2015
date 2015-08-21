@@ -1,5 +1,7 @@
-<% provide(:title, @user.name) %>
-
+<% provide(:title, @homeroom.shop_name) %>
+<h1><%= @homeroom.shop_name %></h1>
+<p><%= @homeroom.content %></p>
+<p><%= @homeroom.menu %></p>
 <% if @homeroom.posts.any? %>
     <h3>記事一覧 (<%= @homeroom.posts.count %>)</h3>
     <ol class="posts">

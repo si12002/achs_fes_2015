@@ -1,6 +1,7 @@
 AchsFes2015::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :homerooms
   root 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/disp_3rd', to: 'static_pages#disp_3rd', via: 'get'
