@@ -18,4 +18,15 @@ describe Post do
     before { @post.homeroom_id = nil }
     it { should_not be_valid }
   end
+
+  describe "with blank title" do
+    before { @post.title = " " }
+    it { should_not be_valid }
+  end
+
+  describe "with blank content" do
+    before { @post.content = " " }
+    it { should_not be_valid }
+  end
+
 end
