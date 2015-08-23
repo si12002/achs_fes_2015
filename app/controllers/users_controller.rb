@@ -14,11 +14,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @homeroom = Homeroom.find(params[:id])
   end
 
   def update
+    @homeroom = Homeroom.find(params[:id])
+
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "変更を保存しました。"
       redirect_to @user
     else
       render 'edit'

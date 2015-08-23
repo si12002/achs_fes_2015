@@ -17,9 +17,10 @@ end
 
 def update
 	@homeroom = Homeroom.find(params[:id])
+	@user = User.find(params[:id])
 	if @homeroom.update_attributes(homeroom_params)
       flash[:success] = "変更を保存しました。"
-      redirect_to @homeroom
+      redirect_to @user
     else
       render 'edit'
     end

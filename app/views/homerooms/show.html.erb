@@ -3,8 +3,6 @@
 <p><%= @homeroom.content %></p>
 <p><%= @homeroom.menu %></p>
 
-<%= link_to "プロフィール編集", edit_homeroom_path, class:"ui-btn" %>
-
 <% if @homeroom.posts.any? %>
     <h3>記事一覧 (<%= @homeroom.posts.count %>)</h3>
     <ol class="posts">
