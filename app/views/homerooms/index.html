@@ -1,0 +1,8 @@
+<% provide(:title, "模擬店一覧") %>
+
+<ul data-role = "listview">
+	<% @homerooms.each do |homeroom| %>
+	<li><%= link_to homeroom.shop_name, homeroom %></li>
+	<% end %>
+
+</ul>

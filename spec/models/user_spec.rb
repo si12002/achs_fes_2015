@@ -109,5 +109,5 @@ describe User do
     before { @user.homeroom_id = nil }
     it { should_not be_valid }
   end
-
+  
 end
