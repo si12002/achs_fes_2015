@@ -1,13 +1,7 @@
 <% if signed_in? %>
+	<p>ようこそ、<%= current_user.name %> さん</p>
+<% end %>
 
-<p>ようこそ、<%= current_user.name %> さん</p>
-
-<ul>
-	<li><%= link_to "マイプロフィール", current_user %></li>
-	<li><%= link_to "模擬店一覧", users_path %></li>
-</ul>
-
-<% else %>
 <h1>青商祭2015</h1>
 <p>
     2015年のテーマは
@@ -28,4 +22,3 @@
 
 <%= link_to "ステージ発表", stage_path, class: "ui-btn" %>
 <%= link_to "校内マップ", map_path, class: "ui-btn" %>
-<% end %>
