@@ -1,7 +1,21 @@
 <% provide(:title, "マイページ") %>
 <h1>
-	<%= gravatar_for @user %><%= @user.name %>
+	<center><%= gravatar_for @user %><br>
+		<%= @user.homeroom.shop_name %>
+	</center>
 </h1>
+<center>(<%= @user.name %>)</center>
+<p><%= @user.homeroom.content %></p>
 
-<%= @user.name %>, <%= @user.email %> (3<%= @user.homeroom_id %>HR)
+メニュー：<strong><%= @user.homeroom.menu %></strong><br>
 <%= link_to "プロフィール変更", edit_user_path(@user), class: "ui-btn" %>
+
+<br><hr><br>
+
+<ul>
+	<% @posts.each do |post| %>
+    	<li>
+     		<%= post.title %>
+    	</li>
+  	<% end %>
+</ul>

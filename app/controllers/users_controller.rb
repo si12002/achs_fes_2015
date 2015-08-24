@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @homeroom = Homeroom.find(params[:id])
+    @posts = @homeroom.posts
   end
 
   def new
