@@ -1,0 +1,9 @@
+<% provide(:title, "投稿一覧") %>
+<h1>投稿一覧</h1>
+<ul data-role = "listview">
+<% @posts.each do |post| %>
+    <li>
+     	<%= link_to post.title, post %>
+    </li>
+<% end %>
+</ul>

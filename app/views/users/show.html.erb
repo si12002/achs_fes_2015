@@ -12,10 +12,14 @@
 
 <br><hr><br>
 
-<ul>
+<%= link_to "記事を投稿する", new_post_path, class: "ui-btn" %>
+
+<h2>記事一覧</h2>
+
+<ul data-role = "listview">
 	<% @posts.each do |post| %>
     	<li>
-     		<%= post.title %>
+     		<%= link_to post.title, post %>
     	</li>
   	<% end %>
 </ul>

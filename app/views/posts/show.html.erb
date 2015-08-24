@@ -1,0 +1,8 @@
+<% provide(:title, @post.title) %>
+
+<h1><%= @post.title %></h1>
+(<%= @post.created_at %>)
+ 投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %>
+<p><%= @post.content %></p>
+
+<%= link_to "記事一覧へ戻る", posts_path, class: "ui-btn"  %>
