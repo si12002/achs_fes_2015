@@ -5,4 +5,8 @@
  投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %>
 <p><%= @post.content %></p>
 
+<% if current_user.homeroom_id == @post.homeroom_id %>
+    <%= link_to "削除", @post, method: :delete, data: { confirm: "本当によろしいですか？" }, title: @post.content, class: "ui-btn" %>
+<% end %>
+
 <%= link_to "記事一覧へ戻る", posts_path, class: "ui-btn"  %>

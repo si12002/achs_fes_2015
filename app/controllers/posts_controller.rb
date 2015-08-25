@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	before_action :signed_in_user, only: [:new, :create, :destroy]
+	before_action :correct_user,   only: :destroy
 
 	def index
 		@posts = Post.all
@@ -28,12 +29,21 @@ class PostsController < ApplicationController
   	end
 
 	def destroy
+		@post.destroy
+    	redirect_to current_user
 	end
 
 
 	private
     	def post_params
       		params.require(:post).permit(:title, :content)
+    	end
+
+    	def correct_user
+      		# @post = current_user.posts.find_by(id: params[:id])
+      		@homeroom = Homeroom.find(current_user.id)
+      		@post = @homeroom.posts.find_by(id: params[:id])
+      		redirect_to current_user if @post.nil?
     	end
 
 end
