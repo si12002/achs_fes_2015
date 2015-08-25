@@ -7,6 +7,7 @@
 
 <% if current_user.homeroom_id == @post.homeroom_id %>
     <%= link_to "削除", @post, method: :delete, data: { confirm: "本当によろしいですか？" }, title: @post.content, class: "ui-btn" %>
+    <%= link_to "記事を編集", edit_post_path, class: "ui-btn" %>
 <% end %>
 
 <%= link_to "記事一覧へ戻る", posts_path, class: "ui-btn"  %>
