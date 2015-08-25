@@ -14,7 +14,7 @@
 
 <%= link_to "記事を投稿する", new_post_path, class: "ui-btn" %>
 
-<h2>記事一覧</h2>
+<h2>記事一覧(<%= @homeroom.posts.count %>)</h2>
 
 <ul data-role = "listview">
 	<% @posts.each do |post| %>
