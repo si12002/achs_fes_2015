@@ -1,6 +1,7 @@
-<li>
-  <span class="content"><%= post.title %></span>
-  <span class="timestamp">
-    <%= time_ago_in_words(post.created_at) %> 前の投稿
-  </span>
-</li>
+<ul data-role = "listview">
+<% @posts.each do |post| %>
+    <li>
+     	<%= link_to post.title, post %>
+    </li>
+<% end %>
+</ul>
