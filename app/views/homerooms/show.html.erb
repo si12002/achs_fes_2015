@@ -1,13 +1,25 @@
 <% provide(:title, @homeroom.shop_name) %>
-<h1><%= @homeroom.shop_name %></h1>
+<center>
+	<h1>
+		<%= gravatar_for @user %><br>
+		<%= @homeroom.shop_name %>
+	</h1>
+	(3年<%= @homeroom.id %>組)
+</center>
+
 <p><%= @homeroom.content %></p>
-<p><%= @homeroom.menu %></p>
+<p>
+	<strong>メニュー:</strong>
+	<%= @homeroom.menu %>
+</p>
+
+<hr>
 
 <% if @homeroom.posts.any? %>
-    <h3>記事一覧 (<%= @homeroom.posts.count %>)</h3>
+    <h2>記事一覧 (<%= @homeroom.posts.count %>)</h2>
     <ol class="posts">
         <%= render @posts %>
     </ol>
 <% else %>
-	<h3>記事は有りません。</h3>
+	<h3>記事はありません。</h3>
 <% end %>
