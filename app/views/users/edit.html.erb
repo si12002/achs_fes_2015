@@ -1,7 +1,14 @@
 <% provide(:title, "プロフィール変更") %>
-<h1>プロフィール変更</h1>
+<h1>設定</h1>
 
-<h2>基本情報</h2>
+<div data-role = "navbar">
+    <ul>
+        <li><%= link_to "ユーザー情報", edit_user_path, class: "ui-btn-active" %></li>
+        <li><%= link_to "プロフィール", edit_homeroom_path %></li>
+    </ul>
+</div>
+
+<h2>ユーザー情報</h2>
 <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
@@ -22,22 +29,3 @@
 
     <%= gravatar_for @user %>
     <a href="http://gravatar.com/emails">画像の変更</a>
-
-<hr noshade="noshade">
-
-<h2>プロフィール</h2>
-
-<%= form_for(@homeroom) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-
-    <%= f.label :shop_name, "店名" %>
-    <%= f.text_field :shop_name %>
-
-    <%= f.label :content, "本文" %>
-    <%= f.text_area :content %>
-
-    <%= f.label :menu, "メニュー" %>
-    <%= f.text_area :menu %>
-
-    <%= f.submit "変更を保存", class: "btn btn-large btn-primary" %>
-<% end %>
