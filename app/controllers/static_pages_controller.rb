@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @posts = Post.order(:created_at).limit(3)
   end
 
   def about
