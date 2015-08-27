@@ -15,3 +15,9 @@ ja:
       post:
         title: タイトル
         content: 本文
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid_format: は不正な形式です。
