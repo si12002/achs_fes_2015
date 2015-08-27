@@ -21,3 +21,6 @@ ja:
           attributes:
             email:
               invalid_format: は不正な形式です。
+  time:
+    formats:
+      default: "%Y年%m月%d日(%a) %H:%M"
