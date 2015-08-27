@@ -1,9 +1,8 @@
 <% provide(:title, @post.title) %>
 
 <h1><%= @post.title %></h1>
-(<%= @post.created_at %>)
- 投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %>
-<p><%= @post.content %></p>
+ 投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> - <%= time_ago_in_words(@post.created_at) %>前
+<p><%= simple_format @post.content %></p>
 
 <% if signed_in? and current_user.homeroom_id == @post.homeroom_id %>
     <%= link_to "削除", @post, method: :delete, data: { confirm: "本当によろしいですか？" }, title: @post.content, class: "ui-btn" %>

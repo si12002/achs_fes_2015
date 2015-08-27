@@ -7,20 +7,20 @@
 	(3年<%= @homeroom.id %>組)
 </center>
 
-<p><%= @homeroom.content %></p>
+<p><%= simple_format @homeroom.content %></p>
 <p>
-	<strong>メニュー:</strong>
-	<%= @homeroom.menu %>
+	<strong>メニュー</strong>
+	<%= simple_format @homeroom.menu %>
 </p>
 
 <hr>
 
 <% if @homeroom.posts.any? %>
     <h2>記事一覧 (<%= @homeroom.posts.count %>)</h2>
-    <ul data-role = "listview">
+    <ul data-role = "listview" data-inset="true">
 		<% @posts.each do |post| %>
     		<li>
-     			<%= link_to post.title, post %>
+     			<%= link_to "#{post.title}   -   #{time_ago_in_words(post.created_at)}前", post %>
     		</li>
 		<% end %>
 	</ul>

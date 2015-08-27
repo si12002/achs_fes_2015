@@ -1,9 +1,12 @@
 <% provide(:title, "投稿一覧") %>
 <h1>投稿一覧</h1>
-<ul data-role = "listview">
+<ul data-role = "listview" data-inset="true">
+	<li data-role = "list-divider">投稿記事一覧</li>
 <% @posts.each do |post| %>
     <li>
-     	<%= link_to post.title, post %>
+    	<h2><%= post.title %></strong></h2>
+    	<p><strong><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>)</strong> - <%= post.created_at %></p>
+    	<p><%= link_to "詳細", post, class: "ui-btn ui-btn-right" %></p>
     </li>
 <% end %>
 </ul>

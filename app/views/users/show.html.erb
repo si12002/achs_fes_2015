@@ -5,9 +5,9 @@
 	</center>
 </h1>
 <center>(<%= @user.name %>)</center>
-<p><%= @user.homeroom.content %></p>
+<p><%= simple_format @user.homeroom.content %></p>
 
-メニュー：<strong><%= @user.homeroom.menu %></strong><br>
+<strong>メニュー</strong><%= simple_format @user.homeroom.menu %><br>
 <%= link_to "プロフィール変更", edit_user_path(@user), class: "ui-btn" %>
 
 <br><hr><br>
@@ -16,10 +16,10 @@
 
 <h2>記事一覧(<%= @homeroom.posts.count %>)</h2>
 
-<ul data-role = "listview">
+<ul data-role = "listview" data-inset="true">
 	<% @posts.each do |post| %>
     	<li>
-     		<%= link_to post.title, post %>
+     		<%= link_to "#{post.title}   -   #{time_ago_in_words(post.created_at)}前", post %>
     	</li>
   	<% end %>
 </ul>
