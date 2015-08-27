@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      homeroom: クラス
+      user: ユーザー
+      post: つぶやき
+    attributes:
+      homeroom:
+        shop_name: 店名
+        content: 本文
+        menu: メニュー
+      user:
+        name: 名前
+        email: メールアドレス
+      post:
+        title: タイトル
+        content: 本文
