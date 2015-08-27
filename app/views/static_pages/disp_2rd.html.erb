@@ -5,6 +5,7 @@
 
 <ul data-role = "listview" data-inset="true">
 	<% @homerooms.each do |homeroom| %>
-		<li><%= homeroom.shop_name %></li>
+		<li><%= homeroom.shop_name %><%= homeroom.id %>
+			</li>
 	<% end %>
 </ul>

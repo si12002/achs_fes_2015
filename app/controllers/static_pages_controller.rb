@@ -14,12 +14,15 @@ class StaticPagesController < ApplicationController
   end
 
   def disp_1rd
+    @homerooms = Homeroom.find([21,22,23])
   end
 
   def disp_cul
+    @homerooms = Homeroom.find([31,32,33,34,35,36])
   end
 
   def disp_pta
+    @homerooms = Homeroom.find([41,42,43,44])
   end
 
   def stage

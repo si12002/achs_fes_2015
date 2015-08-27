@@ -1,2 +1,11 @@
 <% provide(:title, '1学年展示') %>
 <h1>1学年展示</h1>
+
+<p>〜ここに1学年の展示の紹介文が入ります〜</p>
+
+<ul data-role = "listview" data-inset="true">
+	<% @homerooms.each do |homeroom| %>
+		<li><%= homeroom.shop_name %><%= homeroom.id %>
+			</li>
+	<% end %>
+</ul>

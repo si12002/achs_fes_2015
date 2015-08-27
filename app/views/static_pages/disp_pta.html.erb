@@ -1,2 +1,11 @@
 <% provide(:title, 'PTA') %>
-<h1>PTA</h1>
+<h1>PTA・モータースクール展示</h1>
+
+<p>〜ここに紹介文が入ります〜</p>
+
+<ul data-role = "listview" data-inset="true">
+	<% @homerooms.each do |homeroom| %>
+		<li><%= homeroom.shop_name %><%= homeroom.id %>
+			</li>
+	<% end %>
+</ul>
