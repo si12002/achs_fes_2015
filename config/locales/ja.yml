@@ -10,8 +10,10 @@ ja:
         content: 本文
         menu: メニュー
       user:
-        name: 名前
+        name: アカウント名
         email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認パスワード
       post:
         title: タイトル
         content: 本文
