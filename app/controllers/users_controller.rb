@@ -8,8 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @homeroom = Homeroom.find(params[:id])
-    @posts = @homeroom.posts
+    if @user.role_id != 1
+      @homeroom = Homeroom.find(params[:id])
+      @posts = @homeroom.posts
+    end
   end
 
   def new

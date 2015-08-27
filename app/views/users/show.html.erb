@@ -1,4 +1,13 @@
 <% provide(:title, "マイページ") %>
+
+<% if signed_in? && current_user.role_id == 1 %>
+
+	<h1>管理者専用ページ</h1>
+
+	<p>管理者のみなさまお疲れ様です！</p>
+
+<% else %>
+
 <h1>
 	<center><%= gravatar_for @user %><br>
 		<%= @user.homeroom.shop_name %>
@@ -23,3 +32,4 @@
     	</li>
   	<% end %>
 </ul>
+<% end %>
