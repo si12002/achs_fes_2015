@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :homeroom
+  belongs_to :role
   validates :homeroom_id, presence: true
 
 	before_save { self.email = email.downcase }
