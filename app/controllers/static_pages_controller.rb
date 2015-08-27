@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
   end
 
   def disp_2rd
+    @homerooms = Homeroom.find([11,12,13,14,15,16])
   end
 
   def disp_1rd
