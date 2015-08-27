@@ -4,7 +4,18 @@
 
 	<h1>管理者専用ページ</h1>
 
-	<p>管理者のみなさまお疲れ様です！</p>
+	<p>管理者のみなさまお疲れ様です！<br>
+	追加や編集を行なう場合は下のボタンからお願いします。
+	</p>
+
+	<%= link_to "3学年模擬店一覧へ", homerooms_path, class: "ui-btn" %>
+	<%= link_to "2学年展示一覧へ", disp_2rd_path, class: "ui-btn" %>
+	<%= link_to "1学年展示一覧へ", disp_1rd_path, class: "ui-btn" %>
+	<br>
+	<%= link_to "文化部展示一覧へ", disp_cul_path, class: "ui-btn" %>
+	<%= link_to "PTA展示一覧へ", disp_pta_path, class: "ui-btn" %>
+	<%= link_to "ステージ発表一覧へ", stage_path, class: "ui-btn" %>
+
 
 <% else %>
 
