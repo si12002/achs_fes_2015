@@ -1,0 +1,37 @@
+<% provide(:title, "ステージ発表") %>
+
+<% if signed_in? && current_user.role_id == 1 %>
+	<%= link_to "データ登録", new_stage_path, class: "ui-btn" %>
+<% end %>
+
+<ul data-role = "listview" data-inset="true">
+	<li data-role = "list-divider">1日目</li>
+
+	<% @stages1.each do |stage| %>
+	<li>
+		<h2><%= stage.name %></h2>
+		<p><%= stage.content %></p>
+		<p>
+			<% if signed_in? && current_user.role_id == 1 %>
+				<%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+				<%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+			<% end %>
+		<p>
+	</li>
+	<% end %>
+
+	<li data-role = "list-divider">2日目</li>
+
+	<% @stages2.each do |stage| %>
+	<li>
+		<h2><%= stage.name %></h2>
+		<p><%= stage.content %></p>
+		<p>
+			<% if signed_in? && current_user.role_id == 1 %>
+				<%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+				<%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+			<% end %>
+		<p>
+	</li>
+	<% end %>
+</ul>
