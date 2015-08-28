@@ -1,12 +1,14 @@
 <% provide(:title, "プロフィール変更") %>
 <h1>設定</h1>
 
-<div data-role = "navbar">
-    <ul>
-        <li><%= link_to "ユーザー情報", edit_user_path %></li>
-        <li><%= link_to "プロフィール", edit_homeroom_path, class: "ui-btn-active" %></li>
-    </ul>
-</div>
+<% if signed_in? && current_user.role_id == 2 %>
+    <div data-role = "navbar">
+        <ul>
+            <li><%= link_to "ユーザー情報", edit_user_path %></li>
+            <li><%= link_to "プロフィール", edit_homeroom_path, class: "ui-btn-active" %></li>
+        </ul>
+    </div>
+<% end %>
 
 
 <h2>プロフィール</h2>
