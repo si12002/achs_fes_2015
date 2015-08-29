@@ -1,12 +1,29 @@
 <% provide(:title, @post.title) %>
 
 <h1><%= @post.title %></h1>
- 投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> - <%= time_ago_in_words(@post.created_at) %>前
+
+ 投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> - <%= l(@post.created_at, format: :default) %>
+<% if @post.coupon == 1 %>
+    <strong>【クーポンあり】</strong>
+<% end %>
 <p><%= simple_format @post.content %></p>
 
-<%= l(@post.created_at, format: :default) %>
+<% if @post.coupon == 1 %>
+	<br>
+	<div id = "coupon">
+		<p>
+			<center>
+				<strong><%= simple_format @post.c_content %></strong><br>
+				2015年　青商祭
+			</center>
+		</p>
+	</div>
+	<br>
+<% end %>
 
 <% if signed_in? and current_user.homeroom_id == @post.homeroom_id %>
+
+	<hr><br>
     <%= link_to "削除", @post, method: :delete, data: { confirm: "本当によろしいですか？" }, title: @post.content, class: "ui-btn" %>
     <%= link_to "記事を編集", edit_post_path, class: "ui-btn" %>
 <% end %>

@@ -4,4 +4,6 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true
 	validates :content, presence: true
   	validates :homeroom_id, presence: true
+  	validates :coupon, presence: true
+  	validates :c_content, length: { maximum: 100 }
 end

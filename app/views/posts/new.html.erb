@@ -9,7 +9,15 @@
     <%= f.label :content, "本文" %>
     <%= f.text_area :content %>
 
+    <br>
+
+    <%= f.label :coupon, "クーポンを掲載する" %>
+    <%= f.check_box :coupon, {}, "1", "0" %>
+
+    <%= f.label :c_content, "クーポンの内容(100字以内)" %>
+    <%= f.text_field :c_content %>
+
+    <br>
+
     <%= f.submit "記事を投稿する", class: "btn btn-large btn-primary" %>
 <% end %>
-
-<%= link_to "マイページへ", @user, class: "ui-btn"  %>

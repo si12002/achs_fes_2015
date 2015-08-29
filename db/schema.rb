@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828062702) do
+ActiveRecord::Schema.define(version: 20150829073034) do
 
   create_table "homerooms", force: true do |t|
     t.string   "shop_name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20150828062702) do
     t.integer  "homeroom_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "coupon"
+    t.string   "c_content"
   end
 
   create_table "roles", force: true do |t|

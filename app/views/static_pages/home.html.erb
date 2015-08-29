@@ -11,8 +11,11 @@
 <ul data-role = "listview" data-inset="true">
 	<li data-role = "list-divider">新規投稿一覧</li>
 	<% @posts.each do |post| %>
-		<li>
-      		<%= link_to post.title, post %>
+		<li><% if post.coupon == 1 %>
+    			<%= link_to "【クーポンあり】#{post.title}", post%>
+    		<% else %>
+    			<%= link_to post.title, post %>
+       		<% end %>
     	</li>
   	<% end %>
 	<li><%= link_to "記事をもっと見る", posts_path %></li>
