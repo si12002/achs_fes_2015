@@ -9,6 +9,13 @@
     <%= f.label :content, "本文" %>
     <%= f.text_area :content %>
 
+    <%= f.label :image, "画像" %>
+    <%= f.file_field :image %>
+    
+    <% if @post.image != nil %>
+        <label><%= f.check_box :remove_image %>画像を削除</label>
+    <% end %>
+
     <br>
 
     <%= f.label :coupon, "クーポンを掲載する" %>

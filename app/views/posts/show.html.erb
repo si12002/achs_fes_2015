@@ -7,6 +7,9 @@
     <strong>【クーポンあり】</strong>
 <% end %>
 <p><%= simple_format @post.content %></p>
+<% if @post.image != nil %>
+	<p><%= image_tag @post.image.url %></p>
+<% end %>
 
 <% if @post.coupon == 1 %>
 	<br>

@@ -6,4 +6,5 @@ class Post < ActiveRecord::Base
   	validates :homeroom_id, presence: true
   	validates :coupon, presence: true
   	validates :c_content, length: { maximum: 100 }
+  	mount_uploader :image, ImageUploader
 end

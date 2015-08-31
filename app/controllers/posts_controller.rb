@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
 	private
     def post_params
-  		params.require(:post).permit(:title, :content, :coupon, :c_content)
+  		params.require(:post).permit(:title, :content, :image, :image_cache, :remove_image, :coupon, :c_content)
     end
 
     def correct_user

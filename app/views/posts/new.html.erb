@@ -9,6 +9,9 @@
     <%= f.label :content, "本文" %>
     <%= f.text_area :content %>
 
+    <%= f.label :image, "画像" %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
     <br>
 
     <%= f.label :coupon, "クーポンを掲載する" %>
