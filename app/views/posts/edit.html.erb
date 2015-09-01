@@ -12,7 +12,8 @@
     <%= f.label :image, "画像" %>
     <%= f.file_field :image %>
     
-    <% if @post.image != nil %>
+    <% if @post.image? %>
+        <%= image_tag @post.image.url %>
         <label><%= f.check_box :remove_image %>画像を削除</label>
     <% end %>
 
