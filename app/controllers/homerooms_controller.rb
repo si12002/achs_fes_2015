@@ -27,7 +27,7 @@ end
 
 private
     def homeroom_params
-      params.require(:homeroom).permit(:shop_name, :content, :menu)
+      params.require(:homeroom).permit(:shop_name, :content, :menu, :icon, :remove_icon)
     end
 
 end

@@ -1,6 +1,13 @@
 <% provide(:title, @homeroom.shop_name) %>
 <center>
 	<h1>
+		<center>
+			<% if @homeroom.icon? %>
+				<%= image_tag @homeroom.icon.url %>
+			<% else %>
+				<%= image_tag("noimage.jpg", alt: "No Image") %>
+			<% end %>
+		</center>
 		<br>
 		<%= @homeroom.shop_name %>
 	</h1>

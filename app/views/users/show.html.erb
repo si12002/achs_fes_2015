@@ -20,7 +20,13 @@
 <% else %>
 
 <h1>
-	<center><%= gravatar_for @user %><br>
+	<center>
+		<% if @user.homeroom.icon? %>
+			<%= image_tag @user.homeroom.icon.url %>
+		<% else %>
+			<%= image_tag("noimage.jpg", alt: "No Image") %>
+		<% end %>
+		<br>
 		<%= @user.homeroom.shop_name %>
 	</center>
 </h1>
