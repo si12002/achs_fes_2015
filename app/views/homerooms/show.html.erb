@@ -14,11 +14,14 @@
 	(3年<%= @homeroom.id %>組)
 </center>
 
+<div id="content">
 <p><%= simple_format @homeroom.content %></p>
+<hr>
 <p>
 	<strong>メニュー</strong>
 	<%= simple_format @homeroom.menu %>
 </p>
+</div>
 
 <hr>
 

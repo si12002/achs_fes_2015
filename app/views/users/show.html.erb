@@ -16,7 +16,6 @@
 	<%= link_to "PTA展示一覧へ", disp_pta_path, class: "ui-btn" %>
 	<%= link_to "ステージ発表一覧へ", stages_path, class: "ui-btn" %>
 
-
 <% else %>
 
 <h1>
@@ -31,9 +30,11 @@
 	</center>
 </h1>
 <center>(<%= @user.name %>)</center>
+<div id = "content">
 <p><%= simple_format @user.homeroom.content %></p>
-
-<strong>メニュー</strong><%= simple_format @user.homeroom.menu %><br>
+<hr>
+<p><strong>メニュー</strong><br><%= simple_format @user.homeroom.menu %></p>
+</div>
 <%= link_to "プロフィール変更", edit_user_path(@user), class: "ui-btn" %>
 
 <br><hr><br>

@@ -1,11 +1,16 @@
 <% provide(:title, @post.title) %>
 
+<div id = "content">
 <h1><%= @post.title %></h1>
 
- 投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> - <%= l(@post.created_at, format: :default) %>
+<p>投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> (3-<%= @post.homeroom.id %>)</p>
+<p><%= l(@post.created_at, format: :default) %></p>
 <% if @post.coupon == 1 %>
     <strong>【クーポンあり】</strong>
 <% end %>
+
+<hr>
+
 <p><%= simple_format @post.content %></p>
 
 <% if @post.image? %>
@@ -24,6 +29,7 @@
 	</div>
 	<br>
 <% end %>
+</div>
 
 <% if signed_in? and current_user.homeroom_id == @post.homeroom_id %>
 
