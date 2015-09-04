@@ -350,7 +350,7 @@ html body .ui-group-theme-a .ui-slider-track .ui-btn-active,
 html body div.ui-slider-track.ui-body-a .ui-btn-active {
 	background-color: #77a8f9 /*{a-active-background-color}*/;
 	border-color: #ffffff /*{a-active-border}*/;
-	color: color: /*{a-active-color}*/;
+	/*color: color: {a-active-color};*/
 	text-shadow: 0 /*{a-active-shadow-x}*/ 0px /*{a-active-shadow-y}*/ 0 /*{a-active-shadow-radius}*/ #000000 /*{a-active-shadow-color}*/;
 }
 /* Active radio button icon */
