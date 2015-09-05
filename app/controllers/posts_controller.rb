@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
-	before_action :signed_in_user, only: [:new, :create, :destroy]
-	before_action :correct_user,   only: :destroy
-
+	before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
+	
 	def index
 		@posts = Post.all
 	end
@@ -43,7 +42,9 @@ class PostsController < ApplicationController
   end
 
 	def destroy
+    @post = Post.find(params[:id])
 		@post.destroy
+    flash[:success] = "削除しました。"
     redirect_to current_user
 	end
 
@@ -51,13 +52,6 @@ class PostsController < ApplicationController
 	private
     def post_params
   		params.require(:post).permit(:title, :content, :image, :image_cache, :remove_image, :coupon, :c_content)
-    end
-
-    def correct_user
-    	# @post = current_user.posts.find_by(id: params[:id])
-    	@homeroom = Homeroom.find(current_user.id)
-    	@post = @homeroom.posts.find_by(id: params[:id])
-    	redirect_to current_user if @post.nil?
     end
 
 end
