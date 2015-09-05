@@ -31,7 +31,7 @@
 <% end %>
 </div>
 
-<% if signed_in? and current_user.homeroom_id == @post.homeroom_id %>
+<% if signed_in? and current_user.homeroom_id == @post.homeroom_id or current_user.role_id == 1 %>
 
 	<hr><br>
     <%= link_to "削除", @post, method: :delete, data: { confirm: "本当によろしいですか？" }, title: @post.content, class: "ui-btn" %>
