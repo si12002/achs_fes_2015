@@ -23,7 +23,7 @@
 </p>
 </div>
 
-<% if current_user.role_id == 1 %>
+<% if signed_in? and current_user.role_id == 1 %>
 	<%= link_to "編集", edit_homeroom_path, class: "ui-btn" %>
 <% end %>
 
