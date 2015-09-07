@@ -14,19 +14,21 @@
 <h2>プロフィール</h2>
 <%= form_for(@homeroom, html: { multipart: true }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-    <center>
+    <% if @homeroom.id < 7 %>
+        <center>
             <% if @homeroom.icon? %>
                 <%= image_tag @homeroom.icon.url %>
             <% else %>
                 <%= image_tag("noimage.jpg", alt: "No Image") %>
             <% end %>
-    </center>
+        </center>
 
-    <%= f.label :icon, "画像" %>
-    <%= f.file_field :icon %>
+        <%= f.label :icon, "画像" %>
+        <%= f.file_field :icon %>
 
-    <% if @homeroom.icon? %>
-        <label><%= f.check_box :remove_icon %>画像を削除</label>
+        <% if @homeroom.icon? %>
+            <label><%= f.check_box :remove_icon %>画像を削除</label>
+        <% end %>
     <% end %>
 
     <%= f.label :shop_name, "店名" %>
