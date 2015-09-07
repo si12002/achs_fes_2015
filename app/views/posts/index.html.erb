@@ -2,6 +2,8 @@
 <h1>投稿一覧</h1>
 <ul data-role = "listview" data-inset="true">
 	<li data-role = "list-divider">投稿記事一覧</li>
+
+<% if @posts.any? %>    
 <% @posts.each do |post| %>
     <li>
     	<h2>
@@ -14,6 +16,9 @@
     	</p>
     	<p><%= link_to "記事を見る", post, class: "ui-btn" %><p>
     </li>
+<% end %>
+<% else %>
+    <li>投稿はありません。</li>
 <% end %>
 
 </ul>

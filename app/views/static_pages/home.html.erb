@@ -10,15 +10,20 @@
 
 <ul data-role = "listview" data-inset="true">
 	<li data-role = "list-divider">新規投稿一覧</li>
-	<% @posts.each do |post| %>
-		<li><% if post.coupon == 1 %>
-    			<%= link_to "【クーポンあり】#{post.title}", post%>
-    		<% else %>
-    			<%= link_to "#{post.title} (#{post.homeroom.shop_name} 3-#{post.homeroom.id})", post %>
-       		<% end %>
-    	</li>
-  	<% end %>
-	<li><%= link_to "記事をもっと見る", posts_path %></li>
+	<% if @posts.any? %>
+		<% @posts.each do |post| %>
+			<li>
+				<% if post.coupon == 1 %>
+    				<%= link_to "【クーポンあり】#{post.title}", post%>
+    			<% else %>
+    				<%= link_to "#{post.title} (#{post.homeroom.shop_name} 3-#{post.homeroom.id})", post %>
+       			<% end %>
+    		</li>
+  		<% end %>
+		<li><%= link_to "記事をもっと見る", posts_path %></li>
+	<% else %>
+		<li>投稿はありません。</li>
+	<% end %>
 </ul>
 
 
