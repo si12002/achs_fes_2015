@@ -2,7 +2,7 @@ class HomeroomsController < ApplicationController
 before_action :signed_in_user, only: [:create, :edit, :update, :destroy]
 
 def index
-	@homerooms = Homeroom.find([1,2,3,4,5,6])
+  @homerooms = Homeroom.order(:id).limit(6)
 end
 
 def show
