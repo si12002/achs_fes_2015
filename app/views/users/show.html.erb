@@ -4,7 +4,8 @@
 
 	<h1>管理者専用ページ</h1>
 
-	<p>管理者のみなさまお疲れ様です！<br>
+	<p>お疲れ様です！<br>
+		現在<strong><%= @user.name %></strong>でログインしています。<br>
 	追加や編集を行なう場合は下のボタンからお願いします。
 	</p>
 
@@ -29,11 +30,11 @@
 		<%= @user.homeroom.shop_name %>
 	</center>
 </h1>
-<center>(<%= @user.name %>)</center>
+<center>現在<strong><%= @user.name %></strong>でログインしています</center>
 <div id = "content">
-<p><%= simple_format @user.homeroom.content %></p>
-<hr>
-<p><strong>メニュー</strong><br><%= simple_format @user.homeroom.menu %></p>
+	<p><%= simple_format @user.homeroom.content %></p>
+	<hr>
+	<p><strong>メニュー</strong><br><%= simple_format @user.homeroom.menu %></p>
 </div>
 <%= link_to "プロフィール変更", edit_user_path(@user), class: "ui-btn" %>
 
@@ -41,13 +42,26 @@
 
 <%= link_to "記事を投稿する", new_post_path, class: "ui-btn" %>
 
-<h2>記事一覧(<%= @homeroom.posts.count %>)</h2>
-
 <ul data-role = "listview" data-inset="true">
-	<% @posts.each do |post| %>
-    	<li>
-     		<%= link_to "#{post.title}   -   #{time_ago_in_words(post.created_at)}前", post %>
-    	</li>
-  	<% end %>
+  	<li data-role = "list-divider">記事一覧(<%= @homeroom.posts.count %>)</li>
+    <% if @posts.any? %>
+        <% @posts.each do |post| %>
+            <li>
+                <% if post.coupon == 1 %>
+                    <%= link_to post do %>
+                        <h3><%= post.title %>【クーポン】</h3>
+                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前</p>
+                    <% end %>
+                <% else %>
+                    <%= link_to post do %>
+                        <h3><%= post.title %></h3>
+                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前</p>
+                    <% end %>
+                <% end %>
+            </li>
+        <% end %>
+    <% else %>
+        <li>記事はありません。</li>
+    <% end %>
 </ul>
 <% end %>

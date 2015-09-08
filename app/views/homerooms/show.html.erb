@@ -29,15 +29,25 @@
 
 <hr>
 
-<% if @homeroom.posts.any? %>
-    <h2>記事一覧 (<%= @homeroom.posts.count %>)</h2>
-    <ul data-role = "listview" data-inset="true">
-		<% @posts.each do |post| %>
-    		<li>
-     			<%= link_to "#{post.title}   -   #{time_ago_in_words(post.created_at)}前", post %>
-    		</li>
-		<% end %>
-	</ul>
-<% else %>
-	<h3>記事はありません。</h3>
-<% end %>
+<ul data-role = "listview" data-inset="true">
+  	<li data-role = "list-divider">記事一覧(<%= @homeroom.posts.count %>)</li>
+    <% if @posts.any? %>
+        <% @posts.each do |post| %>
+            <li>
+                <% if post.coupon == 1 %>
+                    <%= link_to post do %>
+                        <h3><%= post.title %>【クーポン】</h3>
+                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前</p>
+                    <% end %>
+                <% else %>
+                    <%= link_to post do %>
+                        <h3><%= post.title %></h3>
+                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前</p>
+                    <% end %>
+                <% end %>
+            </li>
+        <% end %>
+    <% else %>
+        <li>記事はありません。</li>
+    <% end %>
+</ul>
