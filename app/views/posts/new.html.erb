@@ -3,10 +3,10 @@
 <%= form_for(@post, html: { multipart: true }) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :title, "タイトル" %>
+    <%= f.label :title, "タイトル(*必須)" %>
     <%= f.text_field :title %>
 
-    <%= f.label :content, "本文" %>
+    <%= f.label :content, "本文(*必須)" %>
     <%= f.text_area :content %>
 
     <%= f.label :image, "画像" %>

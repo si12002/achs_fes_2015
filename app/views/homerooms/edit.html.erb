@@ -11,7 +11,7 @@
 <% end %>
 
 
-<h2>プロフィール</h2>
+<h2>プロフィールページ</h2>
 <%= form_for(@homeroom, html: { multipart: true }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <% if @homeroom.id < 7 %>
@@ -31,10 +31,10 @@
         <% end %>
     <% end %>
 
-    <%= f.label :shop_name, "店名" %>
+    <%= f.label :shop_name, "店名(*必須)" %>
     <%= f.text_field :shop_name %>
 
-    <%= f.label :content, "本文" %>
+    <%= f.label :content, "紹介文(*必須)" %>
     <%= f.text_area :content %>
 
     <%= f.label :menu, "メニュー" %>

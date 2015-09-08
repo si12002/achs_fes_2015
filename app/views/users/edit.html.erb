@@ -21,10 +21,10 @@
     <%= f.label :email, "メールアドレス" %>
     <%= f.text_field :email %>
 
-    <%= f.label :password, "パスワード" %>
+    <%= f.label :password, "パスワード(*必須)" %>
     <%= f.password_field :password %>
 
-    <%= f.label :password_confirmation, "パスワード確認" %>
+    <%= f.label :password_confirmation, "パスワード確認(*必須)" %>
     <%= f.password_field :password_confirmation %>
 
     <%= f.submit "変更を保存", class: "btn btn-large btn-primary" %>
