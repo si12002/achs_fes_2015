@@ -22,8 +22,10 @@
 	<div id = "coupon">
 		<p>
 			<center>
+				H27 青商祭クーポン<br>
 				<strong><%= simple_format @post.c_content %></strong><br>
-				2015年　青商祭
+				<%= @post.homeroom.shop_name %><br>
+				（3年<%= @post.homeroom.id %>組）
 			</center>
 		</p>
 	</div>
