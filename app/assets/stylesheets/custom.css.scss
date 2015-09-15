@@ -11,11 +11,16 @@
 }
 
 #coupon{
-	border: 1px solid #000000;
-	margin: 30px;
-	padding: 10px;
-	background-color: #ffcce6;
-	font-size: 12px;
+	background-image:url("/assets/coupon.png");
+	background-repeat:no-repeat;
+	background-size:100% auto;
+	margin: 10px;
+}
+
+#c_content{
+	margin:10px;
+	padding:10px 10px 70px 10px;
+	font-size:4vw;
 }
 
 #cmark{

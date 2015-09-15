@@ -14,22 +14,22 @@
 <p><%= simple_format @post.content %></p>
 
 <% if @post.image? %>
-	<%= image_tag @post.image.url %>
+	<%= image_tag @post.image.url, class: "fw" %>
 <% end %>
 
 <% if @post.coupon == 1 %>
 	<br>
-	<div id = "coupon">
-		<p>
+		<div id="coupon">
 			<center>
-				H27 青商祭クーポン<br>
-				<strong><%= simple_format @post.c_content %></strong><br>
-				<%= @post.homeroom.shop_name %><br>
-				（3年<%= @post.homeroom.id %>組）
+				<div id="c_content">
+					<strong><%= simple_format @post.c_content %></strong>
+					<%= @post.homeroom.shop_name %><br>
+					（3年<%= @post.homeroom.id %>組）
+				</div>
 			</center>
-		</p>
-	</div>
-	<br>
+		</div>
+		<br>
+		<%= image_tag "wborder.png", class: "fw" %>	
 <% end %>
 </div>
 
