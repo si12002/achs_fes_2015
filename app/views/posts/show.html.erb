@@ -11,14 +11,14 @@
 
 <hr>
 
-<p><%= simple_format @post.content %></p>
-
 <% if @post.image? %>
 	<%= image_tag @post.image.url, class: "fw" %>
 <% end %>
 
+<p><%= simple_format @post.content %></p>
+
 <% if @post.coupon == 1 %>
-	<br>
+	<hr><br>
 		<div id="coupon">
 			<center>
 				<div id="c_content">
