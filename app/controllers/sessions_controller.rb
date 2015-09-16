@@ -9,7 +9,7 @@ def create
     sign_in user
     redirect_back_or user
   else
-    flash.now[:error] = 'Invalid email/password combination'
+    flash.now[:error] = 'メールアドレスまたはパスワードが違います。'
     render 'new'
   end
 end
