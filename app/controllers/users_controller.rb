@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user.role_id != 1
-      @homeroom = Homeroom.find(params[:id])
+      @homeroom = Homeroom.find(@user.homeroom_id)
       @posts = @homeroom.posts
     end
   end
@@ -18,11 +18,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @homeroom = Homeroom.find(params[:id])
+    @homeroom = Homeroom.find(@user.homeroom_id)
   end
 
   def update
-    @homeroom = Homeroom.find(params[:id])
+    @homeroom = Homeroom.find(@user.homeroom_id)
 
     if @user.update_attributes(user_params)
       flash[:success] = "変更を保存しました。"

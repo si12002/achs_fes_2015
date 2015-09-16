@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
 	def create
 		@user = User.find(current_user.id)
-		@homeroom = Homeroom.find(current_user.id)
+		@homeroom = Homeroom.find(@user.homeroom_id)
     @post = @homeroom.posts.build(post_params)
     if @post.save
       flash[:success] = "投稿が完了しました。"
