@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
     @posts = Post.order(:created_at).limit(3)
+    if signed_in? && current_user.role_id !=3
+      redirect_to current_user
+    end
   end
 
   def about
