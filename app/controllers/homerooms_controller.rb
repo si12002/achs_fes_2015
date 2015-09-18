@@ -12,8 +12,7 @@ end
 
 def edit
   if current_user.role_id == 2
-    @user = User.find(params[:id])
-    @homeroom = Homeroom.find(@user.homeroom_id)
+    @homeroom = Homeroom.find(current_user.homeroom_id)
   else
     @homeroom = Homeroom.find(params[:id])
   end
@@ -21,8 +20,7 @@ end
 
 def update
   if current_user.role_id == 2
-    @user = User.find(params[:id])
-    @homeroom = Homeroom.find(@user.homeroom_id)
+    @homeroom = Homeroom.find(current_user.homeroom_id)
   else
     @homeroom = Homeroom.find(params[:id])
   end
