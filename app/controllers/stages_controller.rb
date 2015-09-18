@@ -1,5 +1,5 @@
 class StagesController < ApplicationController
-	before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
+before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
 		@stages1 = Stage.where('day = ?', 1)

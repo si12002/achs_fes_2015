@@ -43,4 +43,24 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.url
   end
+
+  # 管理者ユーザーであるかどうか調べる
+  def admin_user
+    unless signed_in? and current_user.role_id == 1
+      redirect_to root_url
+    end
+  end
+
+  # 管理者ユーザーまたは出展者ユーザーであるかどうか調べる
+  def shop_or_admin_user
+    unless signed_in? && current_user.role_id != 3
+      redirect_to signin_path
+    end
+  end
+
+  # ログインしているかどうか調べる
+  # = ユーザーがアカウントを持っているかどうか
+  def have_account
+  end
+
 end
