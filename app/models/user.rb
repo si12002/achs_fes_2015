@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :homeroom
   belongs_to :role
+  has_many :like
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
