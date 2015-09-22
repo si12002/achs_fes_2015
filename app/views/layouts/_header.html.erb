@@ -1,5 +1,5 @@
 <div data-role="header">
-	<% if current_user %>
+	<% if signed_in? and current_user.role_id != 3 %>
 		<%= link_to "マイページ", current_user %>
 	<% else %>
 		<%= link_to "ホーム", root_path %>

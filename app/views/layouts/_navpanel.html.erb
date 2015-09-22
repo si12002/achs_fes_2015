@@ -1,6 +1,6 @@
 <div data-role="panel" id="navpanel" data-position="right" data-display="overlay">
 	<ul data-role="listview">
-		<% if signed_in? %>
+		<% if signed_in? and current_user.role_id != 3 %>
 			<li><%= link_to "マイページ", current_user %></li>
 			<li><%= link_to "記事一覧", posts_path %></li>
 			<li><%= link_to "模擬店一覧", homerooms_path %></li>
@@ -14,6 +14,12 @@
 			<li><%= link_to "模擬店一覧", homerooms_path %></li>
 			<li><%= link_to "このアプリについて", about_path %></li>
 			<li><%= link_to "ログイン", signin_path %></li>
+		<% end %>
+
+		<% if signed_in? %>
+			<li>現在<%= current_user.role_id %>番のユーザーです。</li>
+		<% else %>
+			<li>ユーザー登録されていません。</li>
 		<% end %>
 
 	</ul>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:index, :show, :edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:show, :edit, :update]
 
   def index
   	@users = User.order(:id).limit(41)
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.role_id != 1
+    if @user.role_id == 2
       @homeroom = Homeroom.find(@user.homeroom_id)
       @posts = @homeroom.posts
     end

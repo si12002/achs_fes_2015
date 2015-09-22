@@ -44,6 +44,7 @@ module SessionsHelper
     session[:return_to] = request.url
   end
 
+  # 管理者だけが見えるページ
   # 管理者ユーザーであるかどうか調べる
   def admin_user
     unless signed_in? and current_user.role_id == 1
@@ -51,6 +52,7 @@ module SessionsHelper
     end
   end
 
+  # 出展者または管理者だけが見えるページ
   # 管理者ユーザーまたは出展者ユーザーであるかどうか調べる
   def shop_or_admin_user
     unless signed_in? && current_user.role_id != 3
@@ -58,9 +60,22 @@ module SessionsHelper
     end
   end
 
+  # みんな見えるページ
   # ログインしているかどうか調べる
   # = ユーザーがアカウントを持っているかどうか
   def have_account
+    unless signed_in?
+      user = User.create(name:"no_name", email:"no@name.com", password:"no_name", password_confirmation:"no_name", role_id:3)
+      sign_in user
+    end
   end
+
+  # ログインフォームのページ
+  # ログインフォームではユーザーは生成しない
+  def signed_in_at_form
+    if signed_in?
+      sign_out
+    end
+  end 
 
 end
