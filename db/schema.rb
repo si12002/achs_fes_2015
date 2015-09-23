@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901111423) do
+ActiveRecord::Schema.define(version: 20150922022211) do
 
   create_table "homerooms", force: true do |t|
     t.string   "shop_name"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20150901111423) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "icon"
+  end
+
+  create_table "likes", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
