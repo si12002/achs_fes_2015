@@ -32,6 +32,17 @@
 		<br>
 		<%= image_tag "wborder.png", class: "fw" %>	
 <% end %>
+
+<% unless current_user.likes.find_by(post_id: @post.id) %>
+	<%= form_for(@like) do |f| %>
+		<%= f.hidden_field :post_id, :value => @post.id %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<%= f.submit "応援する！" %>
+	<% end %>
+<% else %>
+	<%= image_tag "images/megaphone.png" %>応援済み！
+<% end %>
+
 </div>
 
 <% if signed_in? %>

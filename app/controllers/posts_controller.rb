@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-	before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
-	
+	before_action :shop_or_admin_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :have_account
+
 	def index
 		@posts = Post.all
 	end
@@ -8,6 +9,8 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 		@homeroom = Homeroom.find(@post.homeroom_id)
+    @like = current_user.likes.build(post_id: @post.id)
+    @unlike = current_user.likes.find_by(post_id: @post.id)
 	end
 
 	def new
@@ -51,7 +54,7 @@ class PostsController < ApplicationController
 
 	private
     def post_params
-  		params.require(:post).permit(:title, :content, :image, :image_cache, :remove_image, :coupon, :c_content)
+  		params.require(:post).permit(:id, :title, :content, :image, :image_cache, :remove_image, :coupon, :c_content)
     end
 
 end
