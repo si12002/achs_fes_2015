@@ -1,13 +1,17 @@
 <% provide(:title, @post.title) %>
 
 <div id = "content">
-<h1><%= @post.title %></h1>
+<h1>
+	<%= @post.title %>
+	<% if @post.coupon == 1 %>
+    	<%= image_tag "coupon32.png" %>
+	<% end %>
+</h1>
 
 <p>投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> (3-<%= @post.homeroom.id %>)</p>
 <p><%= l(@post.created_at, format: :default) %></p>
-<% if @post.coupon == 1 %>
-    <strong>【クーポンあり】</strong>
-<% end %>
+
+<%= image_tag "megaphone16.png" %><%= @post.likes.count %>
 
 <hr>
 
@@ -40,7 +44,7 @@
 		<%= f.submit "応援する！" %>
 	<% end %>
 <% else %>
-	<%= image_tag "images/megaphone.png" %>応援済み！
+	<%= image_tag "megaphone32.png" %>応援済み！
 <% end %>
 
 </div>
