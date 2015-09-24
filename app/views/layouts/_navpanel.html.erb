@@ -17,7 +17,7 @@
 		<% end %>
 
 		<% if signed_in? %>
-			<li>現在<%= current_user.role_id %>番のユーザーです。</li>
+			<li>現在<%= current_user.id %>番のユーザーです。</li>
 		<% else %>
 			<li>ユーザー登録されていません。</li>
 		<% end %>
