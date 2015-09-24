@@ -62,11 +62,10 @@ module SessionsHelper
 
   # みんな見えるページ
   # ログインしているかどうか調べる
-  # = ユーザーがアカウントを持っているかどうか
   def have_account
     unless signed_in?
-      user = User.create(name:"no_name", email:"no@name.com", password:"no_name", password_confirmation:"no_name", role_id:3)
-      sign_in user
+      new_user = User.create!(name:"no_name", email:"no@name.com", password:"no_name", password_confirmation:"no_name", role_id:3)
+      sign_in new_user
     end
   end
 
