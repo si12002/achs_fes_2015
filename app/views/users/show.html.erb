@@ -2,66 +2,72 @@
 
 <% if signed_in? && current_user.role_id == 1 %>
 
-	<h1>管理者専用ページ</h1>
-
-	<p>お疲れ様です！<br>
-		現在<strong><%= @user.name %></strong>でログインしています。<br>
+  <h1>管理者専用ページ</h1>
+  <p>
+  	お疲れ様です！<br>
+	現在<strong><%= @user.name %></strong>でログインしています。<br>
 	追加や編集を行なう場合は下のボタンからお願いします。
-	</p>
+  </p>
 
-	<%= link_to "3学年模擬店一覧へ", homerooms_path, class: "ui-btn" %>
-	<%= link_to "2学年展示一覧へ", disp_2rd_path, class: "ui-btn" %>
-	<%= link_to "1学年展示一覧へ", disp_1rd_path, class: "ui-btn" %>
-	<br>
-	<%= link_to "文化部展示一覧へ", disp_cul_path, class: "ui-btn" %>
-	<%= link_to "PTA展示一覧へ", disp_pta_path, class: "ui-btn" %>
-	<%= link_to "ステージ発表一覧へ", stages_path, class: "ui-btn" %>
+  <%= link_to "3学年模擬店一覧へ", homerooms_path, class: "ui-btn" %>
+  <%= link_to "2学年展示一覧へ", disp_2rd_path, class: "ui-btn" %>
+  <%= link_to "1学年展示一覧へ", disp_1rd_path, class: "ui-btn" %>
+  <br>
+  <%= link_to "文化部展示一覧へ", disp_cul_path, class: "ui-btn" %>
+  <%= link_to "PTA展示一覧へ", disp_pta_path, class: "ui-btn" %>
+  <%= link_to "ステージ発表一覧へ", stages_path, class: "ui-btn" %>
 
 <% else %>
 
-<h1>
+  <h1>
 	<center>
-		<% if @user.homeroom.icon? %>
-			<%= image_tag @user.homeroom.icon.url %>
-		<% else %>
-			<%= image_tag("noimage.jpg", alt: "No Image") %>
-		<% end %>
-		<br>
-		<%= @user.homeroom.shop_name %>
+	  <% if @user.homeroom.icon? %>
+		<%= image_tag @user.homeroom.icon.url %>
+	  <% else %>
+		<%= image_tag("noimage.jpg", alt: "No Image") %>
+	  <% end %>
+	  <br>
+	  <%= @user.homeroom.shop_name %>
 	</center>
-</h1>
-<center>現在<strong><%= @user.name %></strong>でログインしています</center>
-<div id = "content">
+  </h1>
+  <center>
+  	現在<strong><%= @user.name %></strong>でログインしています
+  </center>
+
+  <div id = "content">
 	<p><%= simple_format @user.homeroom.content %></p>
 	<hr>
 	<p><strong>メニュー</strong><br><%= simple_format @user.homeroom.menu %></p>
-</div>
-<%= link_to "プロフィール変更", edit_user_path(@user), class: "ui-btn" %>
+  </div>
+  <%= link_to "プロフィール変更", edit_user_path(@user), class: "ui-btn" %>
 
-<br><hr><br>
+  <br><hr><br>
 
-<%= link_to "記事を投稿する", new_post_path, class: "ui-btn" %>
+  <%= link_to "記事を投稿する", new_post_path, class: "ui-btn" %>
 
-<ul data-role = "listview" data-inset="true">
-  	<li data-role = "list-divider">記事一覧(<%= @homeroom.posts.count %>)</li>
+  <ul data-role = "listview" data-inset="true">
+    <li data-role = "list-divider">記事一覧(<%= @homeroom.posts.count %>)</li>
     <% if @posts.any? %>
-        <% @posts.each do |post| %>
-            <li>
-                <% if post.coupon == 1 %>
-                    <%= link_to post do %>
-                        <h3><%= post.title %>【クーポン】</h3>
-                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前</p>
-                    <% end %>
-                <% else %>
-                    <%= link_to post do %>
-                        <h3><%= post.title %></h3>
-                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前</p>
-                    <% end %>
-                <% end %>
-            </li>
-        <% end %>
+      <% @posts.each do |post| %>
+        <li>
+          <%= link_to post do %>
+            <h3>
+              <%= post.title %>
+              <% if post.coupon == 1 %>
+                <%= image_tag "coupon16.png" %>
+              <% end %>
+            </h3>
+            <p>
+          	  <%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %>
+              <% if current_user.likes.find_by(post_id: post.id) %>
+                (<%= image_tag "checkmegaphone16.png" %>あなたが応援しています)
+              <% end %>
+            </p>
+          <% end %>
+        </li>
+      <% end %>
     <% else %>
-        <li>記事はありません。</li>
+      <li>記事はありません。</li>
     <% end %>
-</ul>
+  </ul>
 <% end %>

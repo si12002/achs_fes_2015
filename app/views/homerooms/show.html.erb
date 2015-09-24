@@ -1,53 +1,56 @@
 <% provide(:title, @homeroom.shop_name) %>
 <center>
-	<h1>
-		<center>
-			<% if @homeroom.icon? %>
-				<%= image_tag @homeroom.icon.url %>
-			<% else %>
-				<%= image_tag("noimage.jpg", alt: "No Image") %>
-			<% end %>
-		</center>
-		<br>
-		<%= @homeroom.shop_name %>
-	</h1>
-	(3年<%= @homeroom.id %>組)
+  <h1>
+    <center>
+	  <% if @homeroom.icon? %>
+	    <%= image_tag @homeroom.icon.url %>
+	  <% else %>
+		<%= image_tag("noimage.jpg", alt: "No Image") %>
+	  <% end %>
+	</center>
+	<br>
+	<%= @homeroom.shop_name %>
+  </h1>
+  (3年<%= @homeroom.id %>組)
 </center>
 
 <div id="content">
 <p><%= simple_format @homeroom.content %></p>
 <hr>
 <p>
-	<strong>メニュー</strong>
-	<%= simple_format @homeroom.menu %>
+  <strong>メニュー</strong>
+  <%= simple_format @homeroom.menu %>
 </p>
 </div>
 
 <% if signed_in? and current_user.role_id == 1 %>
-	<%= link_to "編集", edit_homeroom_path, class: "ui-btn" %>
+  <%= link_to "編集", edit_homeroom_path, class: "ui-btn" %>
 <% end %>
 
 <hr>
 
 <ul data-role = "listview" data-inset="true">
-  	<li data-role = "list-divider">記事一覧(<%= @homeroom.posts.count %>)</li>
-    <% if @posts.any? %>
-        <% @posts.each do |post| %>
-            <li>
-                <% if post.coupon == 1 %>
-                    <%= link_to post do %>
-                        <h3><%= post.title %>【クーポン】</h3>
-                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前</p>
-                    <% end %>
-                <% else %>
-                    <%= link_to post do %>
-                        <h3><%= post.title %></h3>
-                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前</p>
-                    <% end %>
-                <% end %>
-            </li>
+  <li data-role = "list-divider">記事一覧(<%= @homeroom.posts.count %>)</li>
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <li>
+        <%= link_to post do %>
+          <h3>
+            <%= post.title %>
+            <% if post.coupon == 1 %>
+              <%= image_tag "coupon16.png" %>
+            <% end %>
+          </h3>
+          <p>
+            <%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %>
+            <% if current_user.likes.find_by(post_id: post.id) %>
+                (<%= image_tag "checkmegaphone16.png" %>あなたが応援しています)
+            <% end %>
+          </p>
         <% end %>
-    <% else %>
-        <li>記事はありません。</li>
+      </li>
     <% end %>
+  <% else %>
+    <li>記事はありません。</li>
+  <% end %>
 </ul>

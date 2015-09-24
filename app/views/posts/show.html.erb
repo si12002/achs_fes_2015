@@ -1,61 +1,60 @@
 <% provide(:title, @post.title) %>
 
 <div id = "content">
-<h1>
-	<%= @post.title %>
-	<% if @post.coupon == 1 %>
-    	<%= image_tag "coupon32.png" %>
-	<% end %>
-</h1>
+  <h1>
+    <%= @post.title %>
+    <% if @post.coupon == 1 %>
+      <%= image_tag "coupon32.png" %>
+    <% end %>
+  </h1>
+  <p>
+  	投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> (3-<%= @post.homeroom.id %>)
+  </p>
+  <p><%= l(@post.created_at, format: :default) %></p>
+  <%= image_tag "megaphone16.png" %><%= @post.likes.count %>
+  <% if current_user.likes.find_by(post_id: post.id) %>
+    (<%= image_tag "checkmegaphone16.png" %>あなたが応援しています)
+  <% end %>
 
-<p>投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> (3-<%= @post.homeroom.id %>)</p>
-<p><%= l(@post.created_at, format: :default) %></p>
+  <hr>
 
-<%= image_tag "megaphone16.png" %><%= @post.likes.count %>
-
-<hr>
-
-<% if @post.image? %>
+  <% if @post.image? %>
 	<%= image_tag @post.image.url, class: "fw" %>
-<% end %>
-
-<p><%= simple_format @post.content %></p>
-
-<% if @post.coupon == 1 %>
+  <% end %>
+  <p><%= simple_format @post.content %></p>
+  <% if @post.coupon == 1 %>
 	<hr><br>
-		<div id="coupon">
-			<center>
-				<div id="c_content">
-					<strong><%= simple_format @post.c_content %></strong>
-					<%= @post.homeroom.shop_name %><br>
-					（3年<%= @post.homeroom.id %>組）
-				</div>
-			</center>
-			<br>
+	<div id="coupon">
+	  <center>
+	    <div id="c_content">
+		  <strong><%= simple_format @post.c_content %></strong>
+		  <%= @post.homeroom.shop_name %><br>
+		  （3年<%= @post.homeroom.id %>組）
 		</div>
-		<br>
-		<%= image_tag "wborder.png", class: "fw" %>	
-<% end %>
+	  </center>
+	  <br>
+	</div>
+	<br>
+	<%= image_tag "wborder.png", class: "fw" %>	
+  <% end %>
 
-<% unless current_user.likes.find_by(post_id: @post.id) %>
+  <% unless current_user.likes.find_by(post_id: @post.id) %>
 	<%= form_for(@like) do |f| %>
-		<%= f.hidden_field :post_id, :value => @post.id %>
-		<%= f.hidden_field :user_id, :value => current_user.id %>
-		<%= f.submit "応援する！" %>
+	  <%= f.hidden_field :post_id, :value => @post.id %>
+	  <%= f.hidden_field :user_id, :value => current_user.id %>
+	  <%= image_submit_tag("megaphone32.png") %>応援する！
 	<% end %>
-<% else %>
-	<%= image_tag "megaphone32.png" %>応援済み！
-<% end %>
-
+  <% else %>
+    <%= image_tag "checkmegaphone32.png" %>応援済み！
+  <% end %>
 </div>
 
 <% if signed_in? %>
-	<% if current_user.homeroom_id == @post.homeroom_id or current_user.role_id == 1 %>
-
-		<hr><br>
-    	<%= link_to "削除", @post, method: :delete, data: { confirm: "本当によろしいですか？" }, title: @post.content, class: "ui-btn" %>
-    	<%= link_to "記事を編集", edit_post_path, class: "ui-btn" %>
-<% end %>
+  <% if current_user.homeroom_id == @post.homeroom_id or current_user.role_id == 1 %>
+    <hr><br>
+    <%= link_to "削除", @post, method: :delete, data: { confirm: "本当によろしいですか？" }, title: @post.content, class: "ui-btn" %>
+    <%= link_to "記事を編集", edit_post_path, class: "ui-btn" %>
+  <% end %>
 <% end %>
 
 <%= link_to "記事一覧へ戻る", posts_path, class: "ui-btn"  %>

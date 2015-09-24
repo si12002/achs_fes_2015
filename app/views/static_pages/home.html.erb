@@ -1,39 +1,42 @@
 <center><%= image_tag "seishosai15_blue.png", class: 'fw' %></center>
 
 <div id = "top-picture">
-<center><%= image_tag "seishosai2015.jpg", class: 'fw' %></center>
+  <center><%= image_tag "seishosai2015.jpg", class: 'fw' %></center>
 </div>
 
 <div id="content">
 <p>
-	<strong>青商祭日程</strong><br>
-	10月17日（土） 12:30〜15:00<br>
-	10月18日（日） 9:00〜13:30
+  <strong>青商祭日程</strong><br>
+  10月17日（土） 12:30〜15:00<br>
+  10月18日（日） 9:00〜13:30
 </p>
 </div>
 <br>
 <ul data-role = "listview" data-inset="true">
-	<li data-role = "list-divider">新規投稿一覧</li>
-	<% if @posts.any? %>
-		<% @posts.each do |post| %>
-			<li data-icon="false">
-				<% if post.coupon == 1 %>
-					<%= link_to post do %>
-                        <h3><%= post.title %> <%= image_tag "coupon16.png" %></h3>
-                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %></p>
-                    <% end %>
-    			<% else %>
-    				<%= link_to post do %>
-                        <h3><%= post.title %></h3>
-                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %></p>
-                    <% end %>
-       			<% end %>
-    		</li>
-  		<% end %>
-		<li><%= link_to "記事をもっと見る", posts_path %></li>
-	<% else %>
-		<li>投稿はありません。</li>
-	<% end %>
+  <li data-role = "list-divider">新規投稿一覧</li>
+  <% if @posts.any? %>
+	<% @posts.each do |post| %>
+	  <li data-icon="false">
+	    <%= link_to post do %>
+          <h3>
+            <%= post.title %>
+            <% if post.coupon == 1 %>
+              <%= image_tag "coupon16.png" %>
+            <% end %>
+          </h3>
+          <p>
+            <%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %>
+            <% if current_user.likes.find_by(post_id: post.id) %>
+                (<%= image_tag "checkmegaphone16.png" %>あなたが応援しています)
+            <% end %>
+          </p>
+        <% end %>
+      </li>
+  	<% end %>
+	<li><%= link_to "記事をもっと見る", posts_path %></li>
+  <% else %>
+    <li>投稿はありません。</li>
+  <% end %>
 </ul>
 
 

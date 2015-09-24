@@ -1,29 +1,28 @@
 <% provide(:title, "投稿一覧") %>
 <h1>投稿一覧</h1>
+
 <ul data-role = "listview" data-inset="true">
-    <li data-role = "list-divider">新規投稿一覧</li>
-    <% if @posts.any? %>
-        <% @posts.each do |post| %>
-            <li data-icon="false">
-                <% if post.coupon == 1 %>
-                    <%= link_to post do %>
-                        <h3><%= post.title %> <%= image_tag "coupon16.png" %></h3>
-                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %></p>
-                    <% end %>
-                <% else %>
-                    <%= link_to post do %>
-                        <h3><%= post.title %></h3>
-                        <p><%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %></p>
-                    <% end %>
-                <% end %>
-                <%= link_to root_path do %>
-                    
-                    <%= image_tag "megaphone.png" %>
-                <% end %>
-                
-            </li>
+  <li data-role = "list-divider">新規投稿一覧</li>
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <li data-icon="false">
+        <%= link_to post do %>
+          <h3>
+            <%= post.title %>
+            <% if post.coupon == 1 %>
+              <%= image_tag "coupon16.png" %>
+            <% end %>
+          </h3>
+          <p>
+            <%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %> 
+            <% if current_user.likes.find_by(post_id: post.id) %>
+                (<%= image_tag "checkmegaphone16.png" %>あなたが応援しています)
+            <% end %>
+          </p>
         <% end %>
-    <% else %>
-        <li>投稿はありません。</li>
+      </li>
     <% end %>
+  <% else %>
+    <li>投稿はありません。</li>
+  <% end %>
 </ul>
