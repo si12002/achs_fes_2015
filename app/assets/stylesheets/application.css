@@ -9,8 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require achsfes15
- *= require jquery.mobile.icons.min
- *= require jquery.mobile.structure-1.4.5.min
+ *= require jquery.mobile.icons-1.4.5
+ *= require jquery.mobile.structure-1.4.5
  *= require_tree .
  *= require_self
 */
