@@ -11,9 +11,10 @@
   	投稿者: <%= link_to @post.homeroom.shop_name, @homeroom %> (3-<%= @post.homeroom.id %>)
   </p>
   <p><%= l(@post.created_at, format: :default) %></p>
-  <%= image_tag "megaphone16.png" %><%= @post.likes.count %>
   <% if current_user.likes.find_by(post_id: @post.id) %>
-    (<%= image_tag "checkmegaphone16.png" %>あなたが応援しています)
+    <%= image_tag "checkmegaphone16.png" %><%= @post.likes.count %> (<strong>応援中！</strong>)
+  <% else %>
+    <%= image_tag "megaphone16.png" %><%= @post.likes.count %>
   <% end %>
 
   <hr>
@@ -23,7 +24,7 @@
   <% end %>
   <p><%= simple_format @post.content %></p>
   <% if @post.coupon == 1 %>
-	<hr><br>
+	<br>
 	<div id="coupon">
 	  <center>
 	    <div id="c_content">
@@ -42,10 +43,14 @@
 	<%= form_for(@like) do |f| %>
 	  <%= f.hidden_field :post_id, :value => @post.id %>
 	  <%= f.hidden_field :user_id, :value => current_user.id %>
-	  <%= image_submit_tag("megaphone32.png") %>応援する！
+	  <%= f.submit "応援する！" %>
 	<% end %>
   <% else %>
-    <%= image_tag "checkmegaphone32.png" %>応援済み！
+    <div id = "like">
+      <center>
+        <%= image_tag "checkmegaphone32.png" %><strong>応援しています！</strong>
+      </center>
+    </div>
   <% end %>
 </div>
 
