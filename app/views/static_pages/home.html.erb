@@ -25,10 +25,13 @@
             <% end %>
           </h3>
           <p>
-            <%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 <%= image_tag "megaphone16.png" %><%= post.likes.count %>
+            <%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 
             <% if current_user.likes.find_by(post_id: post.id) %>
-                (<%= image_tag "checkmegaphone16.png" %>あなたが応援しています)
+              <%= image_tag "checkmegaphone16.png" %>
+            <% else %>
+              <%= image_tag "megaphone16.png" %>
             <% end %>
+            <%= post.likes.count %>
           </p>
         <% end %>
       </li>
