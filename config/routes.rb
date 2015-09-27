@@ -7,6 +7,7 @@ AchsFes2015::Application.routes.draw do
   resources :likes
   root 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
+  match '/rank', to: 'static_pages#rank', via: 'get'
   match '/disp_3rd', to: 'static_pages#disp_3rd', via: 'get'
   match '/disp_2rd', to: 'static_pages#disp_2rd', via: 'get'
   match '/disp_1rd', to: 'static_pages#disp_1rd', via: 'get'

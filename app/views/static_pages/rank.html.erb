@@ -1,0 +1,35 @@
+<% provide(:title, "アツい！ランキング") %>
+
+<div id="content">
+	<h2>アツい！ランキングとは</h2>
+	<p>アツい！ランキングとは、<strong>記事の『応援』の数が多い順番ランキング</strong>のこと。<br>記事の最後にある『応援する！』ボタンを押して、模擬店・青商祭を盛り上げよう！</p>
+</div>
+
+<ol data-role = "listview" data-inset="true">
+  <li data-role = "list-divider">アツい！ランキング</li>
+  <% if @posts.any? %>
+    <% @ranks.each do |post| %>
+      <li data-icon="false">
+        <%= link_to post do %>
+          <h3>
+            <%= post.title %>
+            <% if post.coupon == 1 %>
+              <%= image_tag "coupon16.png" %>
+            <% end %>
+          </h3>
+          <p>
+            <%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 
+            <% if current_user.likes.find_by(post_id: post.id) %>
+              <%= image_tag "checkmegaphone16.png" %>
+            <% else %>
+              <%= image_tag "megaphone16.png" %>
+            <% end %>
+            <%= post.likes.count %>
+          </p>
+        <% end %>
+      </li>
+    <% end %>
+  <% else %>
+    <li>投稿はありません。</li>
+  <% end %>
+</ol>

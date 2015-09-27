@@ -9,6 +9,11 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def rank
+    @posts = Post.all
+    @ranks = Post.all.sort_by{|post|-post.likes.count}
+  end
+
   def about
   end
 
