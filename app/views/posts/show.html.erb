@@ -39,18 +39,20 @@
 	<%= image_tag "wborder.png", class: "fw" %>	
   <% end %>
 
-  <% unless current_user.likes.find_by(post_id: @post.id) %>
-	<%= form_for(@like) do |f| %>
-	  <%= f.hidden_field :post_id, :value => @post.id %>
-	  <%= f.hidden_field :user_id, :value => current_user.id %>
-	  <%= f.submit "応援する！" %>
-	<% end %>
-  <% else %>
-    <div id = "like">
-      <center>
-        <%= image_tag "checkmegaphone32.png" %><strong>応援しています！</strong>
-      </center>
-    </div>
+  <% if current_user.role_id == 3 %>
+    <% unless current_user.likes.find_by(post_id: @post.id) %>
+	    <%= form_for(@like) do |f| %>
+	      <%= f.hidden_field :post_id, :value => @post.id %>
+	      <%= f.hidden_field :user_id, :value => current_user.id %>
+	      <%= f.submit "応援する！" %>
+	    <% end %>
+    <% else %>
+      <div id = "like">
+        <center>
+          <%= image_tag "checkmegaphone32.png" %><strong>応援しています！</strong>
+        </center>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
