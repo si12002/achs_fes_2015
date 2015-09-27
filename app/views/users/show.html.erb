@@ -52,10 +52,10 @@
         <li>
           <%= link_to post do %>
             <h3>
-              <%= post.title %>
               <% if post.coupon == 1 %>
-                <%= image_tag "coupon16.png" %>
+                <%= image_tag "c_icon.png" %>
               <% end %>
+              <%= post.title %>
             </h3>
             <p>
           	  <%= post.homeroom.shop_name %> (3-<%= post.homeroom.id %>) - <%= time_ago_in_words(post.created_at) %>前 
