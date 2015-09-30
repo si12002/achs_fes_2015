@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928085703) do
+ActiveRecord::Schema.define(version: 20150930072146) do
 
   create_table "homerooms", force: true do |t|
     t.string   "shop_name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150928085703) do
     t.integer  "coupon"
     t.string   "c_content"
     t.string   "image"
-    t.float    "point"
+    t.float    "point",       default: 0.0
   end
 
   create_table "roles", force: true do |t|
