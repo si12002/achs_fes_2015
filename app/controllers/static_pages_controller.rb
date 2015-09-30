@@ -3,7 +3,8 @@ class StaticPagesController < ApplicationController
   
   def home
     @posts = Post.order(:created_at).limit(3)
-    @ranks = Post.all.sort_by{|post|-post.point}
+    @ranks = Post.all.sort_by{|post|-post.likes.count} 
+    # @ranks = Post.all.sort_by{|post|-post.point}
     if signed_in? && current_user.role_id !=3
       redirect_to current_user
     end
@@ -11,7 +12,8 @@ class StaticPagesController < ApplicationController
 
   def rank
     @posts = Post.all
-    @ranks = Post.all.sort_by{|post|-post.point}
+    @ranks = Post.all.sort_by{|post|-post.likes.count} 
+    # @ranks = Post.all.sort_by{|post|-post.point}
   end
 
   def about
