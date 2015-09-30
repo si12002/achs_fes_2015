@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 		@homeroom = Homeroom.find(@post.homeroom_id)
     if @post.point == nil
       @post.point = 1*@post.likes.count
+      @post.update_attributes(point: @post.point)
     end
 	end
 
@@ -55,7 +56,7 @@ class PostsController < ApplicationController
 
 	private
     def post_params
-  		params.require(:post).permit(:id, :title, :content, :image, :image_cache, :remove_image, :coupon, :c_content)
+  		params.require(:post).permit(:id, :title, :content, :image, :image_cache, :remove_image, :coupon, :c_content, :point)
     end
 
 end

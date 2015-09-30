@@ -4,6 +4,7 @@ class LikesController < ApplicationController
 def create
 	@like = Like.new(like_params)
 	@c_like = current_user.likes.create!(post_id: @like.post_id)
+	@post = Post.find(@like.post_id)
 	redirect_to @c_like.post
 end
 
