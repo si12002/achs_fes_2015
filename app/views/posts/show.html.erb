@@ -2,8 +2,8 @@
 
 <div id = "content">
   <h1>
-    <% if @post.coupon == 1 %>
     <%= @post.title %>
+    <% if @post.coupon == 1 %>
       <%= image_tag "c_icon.png" %>
     <% end %>
   </h1>
