@@ -9,10 +9,10 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 		@homeroom = Homeroom.find(@post.homeroom_id)
-    # if @post.point == nil
-    #   @post.point = 1*@post.likes.count
-    #   @post.update_attributes(point: @post.point)
-    # end
+    if @post.point == nil
+      @post.point = 1*@post.likes.count
+      @post.update_attributes(point: @post.point)
+    end
 	end
 
 	def new
