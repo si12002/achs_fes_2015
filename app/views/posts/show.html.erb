@@ -39,12 +39,22 @@
 	<%= image_tag "wborder.png", class: "fw" %>	
   <% end %>
 
+  <!-- debug用コード -->
+  <div id="content">
+    <p>現在の投稿のポイント：<%= @post.point %></p>
+  </div>
+
   <% if current_user.role_id == 3 %>
     <% unless current_user.likes.find_by(post_id: @post.id) %>
-	    <%= form_for(@like) do |f| %>
+	    <%= form_for(current_user.likes.build(post_id: @post.id)) do |f| %>
 	      <%= f.hidden_field :post_id, :value => @post.id %>
 	      <%= f.hidden_field :user_id, :value => current_user.id %>
-	      <%= f.submit "応援する！" %>
+	      <%= f.submit "応援する！", :class => "like_button" %>
+        <script>
+        function likes_point(){
+            @post.point += 1*@post.count
+          }
+        </script>
 	    <% end %>
     <% else %>
       <div id = "like">

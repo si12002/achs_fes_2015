@@ -9,8 +9,9 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 		@homeroom = Homeroom.find(@post.homeroom_id)
-    @like = current_user.likes.build(post_id: @post.id)
-    @unlike = current_user.likes.find_by(post_id: @post.id)
+    if @post.point == nil
+      @post.point = 1*@post.likes.count
+    end
 	end
 
 	def new
