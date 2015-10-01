@@ -11,10 +11,18 @@
 	<%= f.text_area :content %>
 	<br>
 
+	<strong>日程</strong>
 	<label><%= f.radio_button :day, 1 %> 1日目</label>
 	<label><%= f.radio_button :day, 2 %> 2日目</label>
 	<br>
 
+	<strong>カテゴリ</strong>
+	<label><%= f.radio_button :category, 1 %> バンド</label>
+	<label><%= f.radio_button :category, 2 %> ダンス</label>
+	<label><%= f.radio_button :category, 3 %> カラオケ</label>
+	<label><%= f.radio_button :category, 4 %> その他</label>
+	<br>
+	
 	<%= f.submit "登録する" %>
 
 <% end %>

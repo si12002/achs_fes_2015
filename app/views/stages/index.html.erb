@@ -1,37 +1,189 @@
 <% provide(:title, "ステージ発表") %>
 
 <% if signed_in? && current_user.role_id == 1 %>
-	<%= link_to "データ登録", new_stage_path, class: "ui-btn" %>
+  <%= link_to "データ登録", new_stage_path, class: "ui-btn" %>
 <% end %>
 
-<ul data-role = "listview" data-inset="true">
-	<li data-role = "list-divider">1日目</li>
+<div id="content">
 
-	<% @stages1.each do |stage| %>
-	<li>
-		<h2><%= stage.name %></h2>
-		<p><%= stage.content %></p>
-		<p>
-			<% if signed_in? && current_user.role_id == 1 %>
-				<%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
-				<%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
-			<% end %>
-		<p>
-	</li>
-	<% end %>
+  <h3 class="title_color">10/17(土)<h3>
+  <p class="small_font">
+  	9:00〜11:00 開会式・全校イベント<br>
+  	12:30〜15:00 一般公開
+  </p>
 
-	<li data-role = "list-divider">2日目</li>
+  <div data-role="collapsible-set">
+    <div data-role="collapsible">
+<!-- バンド -->
+      <% if @stages11.count != 0 %>
+  	    <h3>バンド</h3>
+  	  	  <ul data-role="listview">
+            <% @stages11.each do |stage| %>
+	        <li>
+	          <strong><%= stage.name %></strong>
+	          <p><%= stage.content %></p>
+	        <p>
+	          <% if signed_in? && current_user.role_id == 1 %>
+		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+		        <%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+		      <% end %>
+	        <p>
+	      </li>
+        <% end %>
+	  </ul>
+    <% end %>
+  </div>
 
-	<% @stages2.each do |stage| %>
-	<li>
-		<h2><%= stage.name %></h2>
-		<p><%= stage.content %></p>
-		<p>
-			<% if signed_in? && current_user.role_id == 1 %>
-				<%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
-				<%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
-			<% end %>
-		<p>
-	</li>
-	<% end %>
-</ul>
+  <!-- ダンス -->
+  <div data-role="collapsible">
+    <% if @stages12.count != 0 %>
+  	  <h3>ダンス</h3>
+      <ul data-role="listview">
+        <% @stages12.each do |stage| %>
+	      <li>
+	        <strong><%= stage.name %></strong>
+	        <p><%= stage.content %></p>
+	        <p>
+	          <% if signed_in? && current_user.role_id == 1 %>
+		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+		        <%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+		      <% end %>
+	        <p>
+	      </li>
+        <% end %>
+	  </ul>
+    <% end %>
+  </div>
+
+  <!-- カラオケ -->
+  <div data-role="collapsible">
+    <% if @stages13.count != 0 %>
+  	  <h3>カラオケ</h3>
+  	  <ul data-role="listview">
+        <% @stages13.each do |stage| %>
+	      <li>
+	        <strong><%= stage.name %></strong>
+	        <p><%= stage.content %></p>
+	        <p>
+	          <% if signed_in? && current_user.role_id == 1 %>
+		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+		        <%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+		      <% end %>
+	        <p>
+	      </li>
+        <% end %>
+	  </ul>
+    <% end %>
+  </div>
+
+  <!-- その他 -->
+  <div data-role="collapsible">
+    <% if @stages14.count != 0 %>
+  	  <h3>その他</h3>
+  	  <ul data-role="listview">
+        <% @stages14.each do |stage| %>
+	      <li>
+	        <strong><%= stage.name %></strong>
+	        <p><%= stage.content %></p>
+	        <p>
+	          <% if signed_in? && current_user.role_id == 1 %>
+		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+		        <%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+		      <% end %>
+	        <p>
+	      </li>
+        <% end %>
+	  </ul>
+    <% end %>
+  </div>
+</div>
+  <h3 class="title_color">10/18(土)<h3>
+  <p class="small_font">9:30〜13:30 一般公開</p>
+
+  <div data-role="collapsible-set">
+    <div data-role="collapsible">
+<!-- バンド -->
+      <% if @stages21.count != 0 %>
+  	    <h3>バンド</h3>
+  	  	  <ul data-role="listview">
+            <% @stages21.each do |stage| %>
+	        <li>
+	          <strong><%= stage.name %></strong>
+	          <p><%= stage.content %></p>
+	        <p>
+	          <% if signed_in? && current_user.role_id == 1 %>
+		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+		        <%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+		      <% end %>
+	        <p>
+	      </li>
+        <% end %>
+	  </ul>
+    <% end %>
+  </div>
+
+  <!-- ダンス -->
+  <div data-role="collapsible">
+    <% if @stages22.count != 0 %>
+  	  <h3>ダンス</h3>
+      <ul data-role="listview">
+        <% @stages22.each do |stage| %>
+	      <li>
+	        <strong><%= stage.name %></strong>
+	        <p><%= stage.content %></p>
+	        <p>
+	          <% if signed_in? && current_user.role_id == 1 %>
+		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+		        <%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+		      <% end %>
+	        <p>
+	      </li>
+        <% end %>
+	  </ul>
+    <% end %>
+  </div>
+
+  <!-- カラオケ -->
+  <div data-role="collapsible">
+    <% if @stages23.count != 0 %>
+  	  <h3>カラオケ</h3>
+  	  <ul data-role="listview">
+        <% @stages23.each do |stage| %>
+	      <li>
+	        <strong><%= stage.name %></strong>
+	        <p><%= stage.content %></p>
+	        <p>
+	          <% if signed_in? && current_user.role_id == 1 %>
+		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+		        <%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+		      <% end %>
+	        <p>
+	      </li>
+        <% end %>
+	  </ul>
+    <% end %>
+  </div>
+
+  <!-- その他 -->
+  <div data-role="collapsible">
+    <% if @stages24.count != 0 %>
+  	  <h3>その他</h3>
+  	  <ul data-role="listview">
+        <% @stages24.each do |stage| %>
+	      <li>
+	        <strong><%= stage.name %></strong>
+	        <p><%= stage.content %></p>
+	        <p>
+	          <% if signed_in? && current_user.role_id == 1 %>
+		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
+		        <%= link_to "削除", stage, method: :delete, data: { confirm: "本当によろしいですか？" }, title: stage.content, class: "ui-btn" %>
+		      <% end %>
+	        <p>
+	      </li>
+        <% end %>
+	  </ul>
+    <% end %>
+  </div>
+</div>
+
+</div>

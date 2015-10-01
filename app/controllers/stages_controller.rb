@@ -2,8 +2,14 @@ class StagesController < ApplicationController
 before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
-		@stages1 = Stage.where('day = ?', 1)
-		@stages2 = Stage.where('day = ?', 2)
+		@stages11 = Stage.where('day = ? and category = ?', 1, 1)
+		@stages12 = Stage.where('day = ? and category = ?', 1, 2)
+		@stages13 = Stage.where('day = ? and category = ?', 1, 3)
+		@stages14 = Stage.where('day = ? and category = ?', 1, 4)
+		@stages21 = Stage.where('day = ? and category = ?', 2, 1)
+		@stages22 = Stage.where('day = ? and category = ?', 2, 2)
+		@stages23 = Stage.where('day = ? and category = ?', 2, 3)
+		@stages24 = Stage.where('day = ? and category = ?', 2, 4)
 	end
 
 	def show
@@ -46,7 +52,7 @@ before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 
 	private
     	def stage_params
-      		params.require(:stage).permit(:name, :content, :day)
+      		params.require(:stage).permit(:name, :content, :day, :category)
     	end
 
 end
