@@ -13,10 +13,6 @@ class PostsController < ApplicationController
     @post.update_attributes(point: @post.point)
 	end
 
-  # 再計算する
-  def recompute
-  end
-
 	def new
 		@post = Post.new
 		@user = User.find(current_user.id)
