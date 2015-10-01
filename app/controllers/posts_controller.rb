@@ -15,6 +15,12 @@ class PostsController < ApplicationController
 
   # 再計算する
   def recompute
+    @posts = Post.all
+    @posts.each do |post|
+      post.point = 0.944*post.point
+      post.update_attributes(point: post.point)
+    end
+    render text: 'あああ'
   end
 
 	def new

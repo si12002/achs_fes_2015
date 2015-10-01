@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930072146) do
+ActiveRecord::Schema.define(version: 20150930094420) do
 
   create_table "homerooms", force: true do |t|
     t.string   "shop_name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150930072146) do
     t.integer  "day"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category"
   end
 
   create_table "users", force: true do |t|

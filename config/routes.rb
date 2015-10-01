@@ -15,8 +15,9 @@ AchsFes2015::Application.routes.draw do
   match '/disp_pta', to: 'static_pages#disp_pta', via: 'get'
   match '/stage', to: 'static_pages#stage', via: 'get'
   match '/map', to: 'static_pages#map', via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/signin',  to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+  match '/recompute', to: 'posts#recompute', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
