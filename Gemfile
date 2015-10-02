@@ -25,6 +25,7 @@ gem 'jbuilder', '1.0.2'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'fog'
+gem 'sprockets_better_errors'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

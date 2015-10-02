@@ -2,16 +2,16 @@ class StaticPagesController < ApplicationController
   before_action :have_account
   
   def home
-    @posts = Post.order(:created_at).limit(3)
-    @ranks = Post.all.sort_by{|post|-post.point}
+    @posts = Post.order('created_at DESC').limit(3)
+    @ranks = Post.order('point DESC')
     if signed_in? && current_user.role_id !=3
       redirect_to current_user
     end
   end
 
   def rank
-    @posts = Post.all
-    @ranks = Post.all.sort_by{|post|-post.point}
+    @posts = Post.all.order('created_at DESC')
+    @ranks = Post.all.order('point DESC')
   end
 
   def about

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :have_account
 
 	def index
-		@posts = Post.all
+		@posts = Post.all.order('created_at DESC')
 	end
 
 	def show
