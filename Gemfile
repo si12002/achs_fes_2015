@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.5'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.5'
@@ -25,6 +25,7 @@ gem 'jbuilder', '1.0.2'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'fog'
+gem 'sprockets_better_errors'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
