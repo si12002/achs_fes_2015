@@ -11,16 +11,18 @@
 }
 
 #coupon{
-	background-image:image-url("coupon.png");
-	background-repeat:no-repeat;
-	background-size:100% auto;
-	margin: 10px;
+	width: 70vw;
+	height: 40vw;
+	background-image: url(asset-path("coupon.png"));
+	background-repeat: no-repeat;
+	background-size: 70vw auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #c_content{
-	margin:10px;
-	padding:13px 10px 70px 10px;
-	font-size:4vw;
+	padding-top: 4vw;
+	font-size: 3.3vw;
 }
 
 #cmark{
@@ -47,6 +49,6 @@ h3.title_color{
 }
 
 p.small_font{
-	font-size:15px;
-	font-weight:lighter;
+	font-size: 15px;
+	font-weight: lighter;
 }
