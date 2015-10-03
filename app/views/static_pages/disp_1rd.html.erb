@@ -4,17 +4,21 @@
 <p>〜ここに1学年の展示の紹介文が入ります〜</p>
 
 <ul data-role = "listview" data-inset="true">
+  <% if @homerooms.any? %>
 	<% @homerooms.each do |homeroom| %>
 		<div data-role="collapsible">
 			<h2><%= homeroom.shop_name %></h2>
 			<p><%= simple_format homeroom.content %></p>
-			<% if homeroom.menu != nil %>
-			<strong>メニュー</strong>
-			<% end %>
+			<% if homeroom.menu != '' %>
+				<strong>メニュー</strong>
 				<p><%= simple_format homeroom.menu %></p>
+			<% end %>
 			<% if signed_in? && current_user.role_id == 1 %>
-			<p><%= link_to "変更する", edit_homeroom_path(homeroom.id), class: "ui-btn" %></p>
+			  <p><%= link_to "変更する", edit_homeroom_path(homeroom.id), class: "ui-btn" %></p>
 			<% end %>
 		</div>
 	<% end %>
+  <% else %>
+    <li>登録されていません。</li>
+  <% end %>
 </ul>
