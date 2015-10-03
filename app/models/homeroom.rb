@@ -3,5 +3,6 @@ class Homeroom < ActiveRecord::Base
 	has_many :posts, dependent: :destroy
 	validates :shop_name, presence: true
 	validates :content, presence: true
+	validates :category, presence: true
 	mount_uploader :icon, IconUploader
 end
