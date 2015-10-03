@@ -8,10 +8,13 @@
             <li><%= link_to "プロフィール", edit_homeroom_path, class: "ui-btn-active" %></li>
         </ul>
     </div>
-<% end %>
+
 
 
 <h2>プロフィールページ</h2>
+<% else %>
+<h2>出展物情報編集</h2>
+<% end %>
 <%= form_for(@homeroom, html: { multipart: true }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <% if @homeroom.id < 7 %>
@@ -39,6 +42,14 @@
 
     <%= f.label :menu, "メニュー" %>
     <%= f.text_area :menu %>
+
+    <% if role_id == 1 %>
+        <label><%= f.radio_button :category, 5 %> 3学年模擬店</label>
+        <label><%= f.radio_button :category, 1 %> 1学年展示・装飾</label>
+        <label><%= f.radio_button :category, 2 %> 2学年物販</label>
+        <label><%= f.radio_button :category, 3 %> 文化部・生徒会展示</label>
+        <label><%= f.radio_button :category, 4 %> PTA・モータースクール</label>
+    <% end %>
 
     <%= f.submit "変更を保存", class: "btn btn-large btn-primary" %>
 <% end %>

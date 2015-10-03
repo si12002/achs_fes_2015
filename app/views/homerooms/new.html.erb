@@ -1,0 +1,22 @@
+<% provide(:title, "出展物追加") %>
+
+<%= form_for(@homeroom) do |f| %>
+
+	<%= f.label :shop_name, "展示物名(*必須)" %>
+    <%= f.text_field :shop_name %>
+
+    <%= f.label :content, "紹介文(*必須)" %>
+    <%= f.text_area :content %>
+
+    <%= f.label :menu, "メニュー" %>
+    <%= f.text_area :menu %>
+
+    <label><%= f.radio_button :category, 5 %> 3学年模擬店</label>
+	<label><%= f.radio_button :category, 1 %> 1学年展示・装飾</label>
+	<label><%= f.radio_button :category, 2 %> 2学年物販</label>
+	<label><%= f.radio_button :category, 3 %> 文化部・生徒会展示</label>
+	<label><%= f.radio_button :category, 4 %> PTA・モータースクール</label>
+
+	<%= f.submit "追加", class: "btn btn-large btn-primary" %>
+
+<% end %>
