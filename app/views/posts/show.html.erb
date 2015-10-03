@@ -40,9 +40,11 @@
   <% end %>
 
   <!-- debug用コード -->
-  <div id="content">
-    <p>現在の投稿のポイント：<%= @post.point %></p>
-  </div>
+  <% if role_id == 3 %>
+    <div id="content">
+      <p>現在の投稿のポイント：<%= @post.point %></p>
+    </div>
+  <% end %>
 
   <% if current_user.role_id == 3 %>
     <% unless current_user.likes.find_by(post_id: @post.id) %>
