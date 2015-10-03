@@ -10,6 +10,20 @@ def show
 	@posts = @homeroom.posts
 end
 
+def new
+  @homeroom = Homeroom.new
+end
+
+def create
+  @homeroom = Homeroom.create(homeroom_params)
+  if @homeroom.save
+    flash[:success] = "登録が完了しました。"
+    redirect_to current_user
+  else
+    render 'new'
+  end
+end
+
 def edit
   if current_user.role_id == 2
     @homeroom = Homeroom.find(current_user.homeroom_id)
@@ -34,7 +48,7 @@ end
 
 private
   def homeroom_params
-    params.require(:homeroom).permit(:shop_name, :content, :menu, :icon, :remove_icon)
+    params.require(:homeroom).permit(:shop_name, :content, :menu, :icon, :remove_icon, :category)
   end
 
 end
