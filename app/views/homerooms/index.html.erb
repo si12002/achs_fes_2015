@@ -1,9 +1,6 @@
 <% provide(:title, "模擬店一覧") %>
 <h1>模擬店一覧</h1>
 
-<p>〜模擬店全体の紹介文をここに書きます。〜</p>
-
-
 <ul data-role = "listview" data-inset="true">
 	<% @homerooms.each do |homeroom| %>
 	<li><%= link_to "#{homeroom.shop_name} (3-#{homeroom.id})", homeroom %></li>
