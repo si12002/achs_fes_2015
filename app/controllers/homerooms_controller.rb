@@ -16,10 +16,23 @@ def new
 end
 
 def create
+  @user = User.find(current_user.id)
   @homeroom = Homeroom.create(homeroom_params)
   if @homeroom.save
     flash[:success] = "登録が完了しました。"
-    redirect_to current_user
+    if @homeroom.category == 1
+      redirect_to disp_1rd_path
+    elsif @homeroom.category == 2
+      redirect_to disp_2rd_path
+    elsif @homeroom.category == 3
+      redirect_to disp_cul_path
+    elsif @homeroom.category == 4
+      redirect_to disp_pta_path
+    elsif @homeroom.category == 5
+      redirect_to homerooms_path
+    else 
+      redirect_to @user
+    end
   else
     render 'new'
   end
@@ -34,6 +47,7 @@ def edit
 end
 
 def update
+  @user = User.find(current_user.id)
   if current_user.role_id == 2
     @homeroom = Homeroom.find(current_user.homeroom_id)
   else
@@ -41,7 +55,7 @@ def update
   end
 	if @homeroom.update_attributes(homeroom_params)
     flash[:success] = "変更を保存しました。"
-    redirect_to current_user
+    redirect_to @user
   else
   	render 'edit'
   end
