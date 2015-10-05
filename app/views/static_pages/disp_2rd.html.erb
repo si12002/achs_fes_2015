@@ -1,7 +1,7 @@
 <% provide(:title, '2学年') %>
 <h1>2学年『青商市場』</h1>
 
-<p>〜ここに2学年『青商市場』の紹介文が入ります〜</p>
+<%= link_to "データ登録", new_homeroom_path, class: "ui-btn" %>
 
 <ul data-role = "listview" data-inset="true">
 	<% if @homerooms.any? %>

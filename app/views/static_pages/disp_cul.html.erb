@@ -1,6 +1,8 @@
 <% provide(:title, '文化部展示') %>
 <h1>文化部展示</h1>
 
+<%= link_to "データ登録", new_homeroom_path, class: "ui-btn" %>
+
 <ul data-role = "listview" data-inset="true">
 	<% if @homerooms.any? %>
 	<% @homerooms.each do |homeroom| %>
