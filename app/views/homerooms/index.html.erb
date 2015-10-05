@@ -1,7 +1,7 @@
 <% provide(:title, "模擬店一覧") %>
-<h1>模擬店一覧</h1>
 
 <ul data-role = "listview" data-inset="true">
+	<li data-role = "list-divider">模擬店一覧</li>
 	<% @homerooms.each do |homeroom| %>
 	<li><%= link_to "#{homeroom.shop_name} (3-#{homeroom.id})", homeroom %></li>
 	<% end %>
