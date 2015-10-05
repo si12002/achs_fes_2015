@@ -43,7 +43,7 @@
     <%= f.label :menu, "メニュー" %>
     <%= f.text_area :menu %>
 
-    <% if role_id == 1 %>
+    <% if current_user.role_id == 1 %>
         <label><%= f.radio_button :category, 5 %> 3学年模擬店</label>
         <label><%= f.radio_button :category, 1 %> 1学年展示・装飾</label>
         <label><%= f.radio_button :category, 2 %> 2学年物販</label>
