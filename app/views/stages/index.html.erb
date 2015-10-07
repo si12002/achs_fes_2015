@@ -21,7 +21,7 @@
             <% @stages11.each do |stage| %>
 	        <li>
 	          <strong><%= stage.name %></strong>
-	          <p><%= stage.content %></p>
+	          <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
 		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
@@ -42,7 +42,7 @@
         <% @stages12.each do |stage| %>
 	      <li>
 	        <strong><%= stage.name %></strong>
-	        <p><%= stage.content %></p>
+	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
 		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
@@ -63,7 +63,7 @@
         <% @stages13.each do |stage| %>
 	      <li>
 	        <strong><%= stage.name %></strong>
-	        <p><%= stage.content %></p>
+	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
 		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
@@ -84,7 +84,7 @@
         <% @stages14.each do |stage| %>
 	      <li>
 	        <strong><%= stage.name %></strong>
-	        <p><%= stage.content %></p>
+	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
 		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
@@ -109,7 +109,7 @@
             <% @stages21.each do |stage| %>
 	        <li>
 	          <strong><%= stage.name %></strong>
-	          <p><%= stage.content %></p>
+	          <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
 		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
@@ -130,7 +130,7 @@
         <% @stages22.each do |stage| %>
 	      <li>
 	        <strong><%= stage.name %></strong>
-	        <p><%= stage.content %></p>
+	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
 		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
@@ -151,7 +151,7 @@
         <% @stages23.each do |stage| %>
 	      <li>
 	        <strong><%= stage.name %></strong>
-	        <p><%= stage.content %></p>
+	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
 		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
@@ -172,7 +172,7 @@
         <% @stages24.each do |stage| %>
 	      <li>
 	        <strong><%= stage.name %></strong>
-	        <p><%= stage.content %></p>
+	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
 		        <%= link_to "編集", edit_stage_path(stage), class: "ui-btn" %>
