@@ -20,7 +20,9 @@
   	  	  <ul data-role="listview">
             <% @stages11.each do |stage| %>
 	        <li>
-	          <strong><%= stage.name %></strong>
+	          <div class="title">
+	            <strong><%= stage.name %></strong>
+	      	  </div>
 	          <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
@@ -41,7 +43,9 @@
       <ul data-role="listview">
         <% @stages12.each do |stage| %>
 	      <li>
-	        <strong><%= stage.name %></strong>
+	        <div class="title">
+	          <strong><%= stage.name %></strong>
+	      	</div>
 	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
@@ -62,7 +66,9 @@
   	  <ul data-role="listview">
         <% @stages13.each do |stage| %>
 	      <li>
-	        <strong><%= stage.name %></strong>
+	        <div class="title">
+	          <strong><%= stage.name %></strong>
+	      	</div>
 	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
@@ -83,7 +89,9 @@
   	  <ul data-role="listview">
         <% @stages14.each do |stage| %>
 	      <li>
-	        <strong><%= stage.name %></strong>
+	        <div class="title">
+	          <strong><%= stage.name %></strong>
+	      	</div>
 	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
@@ -108,7 +116,9 @@
   	  	  <ul data-role="listview">
             <% @stages21.each do |stage| %>
 	        <li>
-	          <strong><%= stage.name %></strong>
+	          <div class="title">
+	            <strong><%= stage.name %></strong>
+	      	  </div>
 	          <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
@@ -129,7 +139,9 @@
       <ul data-role="listview">
         <% @stages22.each do |stage| %>
 	      <li>
-	        <strong><%= stage.name %></strong>
+	        <div class="title">
+	          <strong><%= stage.name %></strong>
+	      	</div>
 	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
@@ -150,7 +162,9 @@
   	  <ul data-role="listview">
         <% @stages23.each do |stage| %>
 	      <li>
-	        <strong><%= stage.name %></strong>
+	        <div class="title">
+	          <strong><%= stage.name %></strong>
+	      	</div>
 	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
@@ -171,7 +185,9 @@
   	  <ul data-role="listview">
         <% @stages24.each do |stage| %>
 	      <li>
-	        <strong><%= stage.name %></strong>
+	        <div class="title">
+	          <strong><%= stage.name %></strong>
+	      	</div>
 	        <p><%= simple_format stage.content %></p>
 	        <p>
 	          <% if signed_in? && current_user.role_id == 1 %>
