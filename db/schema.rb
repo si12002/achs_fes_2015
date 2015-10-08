@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008104539) do
+ActiveRecord::Schema.define(version: 20151008111930) do
 
   create_table "homerooms", force: true do |t|
     t.string   "shop_name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20151008104539) do
     t.datetime "updated_at"
     t.string   "icon"
     t.integer  "category"
-    t.integer  "class"
+    t.integer  "class_no"
   end
 
   create_table "likes", force: true do |t|
