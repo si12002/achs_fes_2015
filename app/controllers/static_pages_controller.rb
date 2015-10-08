@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
 
   def disp_2rd
     @hw = Homeroom.where('category = ?', 2)
-    @homerooms = Homeroom.order('class_no')
+    @homerooms = @hw.order('class_no')
   end
 
   def disp_1rd
