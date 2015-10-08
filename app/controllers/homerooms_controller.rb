@@ -55,7 +55,19 @@ def update
   end
 	if @homeroom.update_attributes(homeroom_params)
     flash[:success] = "変更を保存しました。"
-    redirect_to @user
+    if @homeroom.category == 1
+      redirect_to disp_1rd_path
+    elsif @homeroom.category == 2
+      redirect_to disp_2rd_path
+    elsif @homeroom.category == 3
+      redirect_to disp_cul_path
+    elsif @homeroom.category == 4
+      redirect_to disp_pta_path
+    elsif @homeroom.category == 5
+      redirect_to homerooms_path
+    else 
+      redirect_to @user
+    end
   else
   	render 'edit'
   end
@@ -63,7 +75,7 @@ end
 
 private
   def homeroom_params
-    params.require(:homeroom).permit(:shop_name, :content, :menu, :icon, :remove_icon, :category)
+    params.require(:homeroom).permit(:shop_name, :content, :menu, :icon, :remove_icon, :category, :class_no)
   end
 
 end
