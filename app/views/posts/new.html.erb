@@ -6,12 +6,12 @@
     <% if current_user.role_id == 1 %>
         管理者はここでクラスを選択して記事を投稿出来るようになりました！<br>
         【管理者として投稿】は、お店としてではなく管理者として記事を投稿することができます。
-        <label><%= f.radio_button :homeroom_id, 1 %> 3年1組</label>
-        <label><%= f.radio_button :homeroom_id, 2 %> 3年2組</label>
-        <label><%= f.radio_button :homeroom_id, 3 %> 3年3組</label>
-        <label><%= f.radio_button :homeroom_id, 4 %> 3年4組</label>
-        <label><%= f.radio_button :homeroom_id, 5 %> 3年5組</label>
-        <label><%= f.radio_button :homeroom_id, 6 %> 3年6組</label>
+        <label><%= f.radio_button :homeroom_id, 1 %> 二代目里村PIYA（3年1組）</label>
+        <label><%= f.radio_button :homeroom_id, 2 %> セージん家（3年2組）</label>
+        <label><%= f.radio_button :homeroom_id, 3 %> 33 カフェ（3年3組）</label>
+        <label><%= f.radio_button :homeroom_id, 4 %> めん・めん倶楽部（3年4組）</label>
+        <label><%= f.radio_button :homeroom_id, 5 %> 丸亀BACKS（3年5組）</label>
+        <label><%= f.radio_button :homeroom_id, 6 %> SunRock（3年6組）</label>
         <label><%= f.radio_button :homeroom_id, 8 %> 管理者として投稿</label>
     <% end %>
 
