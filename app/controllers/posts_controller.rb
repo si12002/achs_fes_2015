@@ -28,8 +28,12 @@ class PostsController < ApplicationController
 
 	def create
 		@user = User.find(current_user.id)
-		@homeroom = Homeroom.find(@user.homeroom_id)
-    @post = @homeroom.posts.build(post_params)
+    if current_user.role_id == 2
+      @homeroom = Homeroom.find(@user.homeroom_id)
+      @post = @homeroom.posts.build(post_params)
+    else
+      @post = Post.create(post_params)
+    end
     if @post.save
       flash[:success] = "投稿が完了しました。"
       redirect_to @user
@@ -62,7 +66,7 @@ class PostsController < ApplicationController
 
 	private
     def post_params
-  		params.require(:post).permit(:id, :title, :content, :image, :image_cache, :remove_image, :coupon, :c_content, :point)
+  		params.require(:post).permit(:id, :title, :content, :image, :image_cache, :remove_image, :coupon, :c_content, :point, :homeroom_id)
     end
 
 end

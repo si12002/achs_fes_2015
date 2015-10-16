@@ -3,6 +3,18 @@
 <%= form_for(@post, html: { multipart: true }) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 
+    <% if current_user.role_id == 1 %>
+        管理者はここでクラスを選択して記事を投稿出来るようになりました！<br>
+        【管理者として投稿】は、お店としてではなく管理者として記事を投稿することができます。
+        <label><%= f.radio_button :homeroom_id, 1 %> 3年1組</label>
+        <label><%= f.radio_button :homeroom_id, 2 %> 3年2組</label>
+        <label><%= f.radio_button :homeroom_id, 3 %> 3年3組</label>
+        <label><%= f.radio_button :homeroom_id, 4 %> 3年4組</label>
+        <label><%= f.radio_button :homeroom_id, 5 %> 3年5組</label>
+        <label><%= f.radio_button :homeroom_id, 6 %> 3年6組</label>
+        <label><%= f.radio_button :homeroom_id, 8 %> 管理者として投稿</label>
+    <% end %>
+
     <%= f.label :title, "タイトル(*必須)" %>
     <%= f.text_field :title %>
 

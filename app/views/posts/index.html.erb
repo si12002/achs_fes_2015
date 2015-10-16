@@ -1,5 +1,9 @@
 <% provide(:title, "投稿一覧") %>
 
+<% if current_user.role_id == 1 %>
+  <%= link_to "記事投稿", new_post_path, class: "ui-btn" %>
+<% end %>
+
 <ul data-role = "listview" data-inset="true">
   <li data-role = "list-divider">新規投稿一覧</li>
   <% if @posts.any? %>
