@@ -7,7 +7,7 @@ class IconUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   if Rails.env.production?
     include CarrierWave::MiniMagick
-    process resize_to_limit: [150, 150]
+    process resize_to_limit: [400, 400]
   end
 
   # Choose what kind of storage to use for this uploader:
