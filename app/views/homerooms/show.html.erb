@@ -3,7 +3,7 @@
   <h1>
     <center>
 	  <% if @homeroom.icon? %>
-	    <%= image_tag @homeroom.icon.url %>
+	    <%= image_tag @homeroom.icon.url, class: 'fw' %>
 	  <% else %>
 		<%= image_tag("noimage.jpg", alt: "No Image") %>
 	  <% end %>
