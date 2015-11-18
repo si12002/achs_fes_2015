@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
   before_action :signed_in_at_form
 
+# ログインページ
 def new
 end
 
+# ログインする
 def create
   user = User.find_by(email: params[:session][:email].downcase)
   if user && user.authenticate(params[:session][:password])
@@ -15,7 +17,7 @@ def create
   end
 end
 
-
+# ログアウトする
 def destroy
 	sign_out
   redirect_to root_url

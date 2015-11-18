@@ -2,16 +2,19 @@ class PostsController < ApplicationController
 	before_action :shop_or_admin_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :have_account
 
+  # 記事一覧
 	def index
 		@posts = Post.all.order('created_at DESC')
 	end
 
+  # 記事詳細
 	def show
 		@post = Post.find(params[:id])
 		@homeroom = Homeroom.find(@post.homeroom_id)
 	end
 
   # 再計算する
+  # posts/recomputeでポイントを減らす計算をする
   def recompute
     @posts = Post.all
     @posts.each do |post|
@@ -21,11 +24,13 @@ class PostsController < ApplicationController
     render text: 'あああ'
   end
 
+  # 投稿ページ
 	def new
 		@post = Post.new
 		@user = User.find(current_user.id)
 	end
 
+  # 投稿
 	def create
 		@user = User.find(current_user.id)
     if current_user.role_id == 2
@@ -42,6 +47,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # 編集ページ
 	def edit
   	@post = Post.find(params[:id])
   end
@@ -56,6 +62,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # 削除
 	def destroy
     @post = Post.find(params[:id])
 		@post.destroy

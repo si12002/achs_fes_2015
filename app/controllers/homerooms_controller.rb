@@ -2,21 +2,25 @@ class HomeroomsController < ApplicationController
 before_action :signed_in_user, only: [:create, :edit, :update, :destroy]
 before_action :admin_user, only: [:new, :create]
 
+# 模擬店一覧ページ
 def index
-  @homerooms = Homeroom.order(:id).limit(6)
+  @homerooms = Homeroom.order(:id).limit(6) # id順に6つ表示する
 end
 
+# 模擬店詳細ページ
 def show
-	@homeroom = Homeroom.find(params[:id])
-	@posts = @homeroom.posts
+	@homeroom = Homeroom.find(params[:id]) # idがparams[:id]の出展者
+	@posts = @homeroom.posts # idがparams[:id]の出展者の記事を持ってくる
 end
 
+# 出展者追加ページ(3年以外の展示もHomeroomに追加)
 def new
   @homeroom = Homeroom.new
 end
 
+# 追加
 def create
-  @user = User.find(current_user.id)
+  @user = User.find(current_user.id) # 現在のユーザーidのユーザーをさがす
   @homeroom = Homeroom.create(homeroom_params)
   if @homeroom.save
     flash[:success] = "登録が完了しました。"
@@ -38,6 +42,7 @@ def create
   end
 end
 
+# お店情報編集ページ
 def edit
   if current_user.role_id == 2
     @homeroom = Homeroom.find(current_user.homeroom_id)
@@ -46,6 +51,7 @@ def edit
   end
 end
 
+# 更新
 def update
   @user = User.find(current_user.id)
   if current_user.role_id == 2

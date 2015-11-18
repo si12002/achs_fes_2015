@@ -1,6 +1,7 @@
 class StagesController < ApplicationController
 before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
-
+	
+	# ステージ発表ページ
 	def index
 		@stages11 = Stage.where('day = ? and category = ?', 1, 1)
 		@stages12 = Stage.where('day = ? and category = ?', 1, 2)
@@ -15,10 +16,12 @@ before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 	def show
 	end
 
+	# ステージ発表追加ページ
 	def new
 		@stage = Stage.new
 	end
 
+	# 追加
 	def create
 		@stage = Stage.create(stage_params)
     	if @stage.save
@@ -29,10 +32,12 @@ before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
     	end
 	end
 
+	# ステージ発表編集ページ
 	def edit
 		@stage = Stage.find(params[:id])
 	end
 
+	# 編集
 	def update
 		@stage = Stage.find(params[:id])
 		if @stage.update_attributes(stage_params)
@@ -43,6 +48,7 @@ before_action :admin_user, only: [:new, :create, :edit, :update, :destroy]
 		end
 	end
 
+	# 削除
 	def destroy
 		@stage = Stage.find(params[:id])
 		@stage.destroy
