@@ -2,7 +2,11 @@
 
 <ul data-role = "listview" data-inset="true">
 	<li data-role = "list-divider">模擬店一覧</li>
-	<% @homerooms.each do |homeroom| %>
-	<li><%= link_to "#{homeroom.shop_name} (3-#{homeroom.id})", homeroom %></li>
+	<% if @homerooms.any? %>
+	  <% @homerooms.each do |homeroom| %>
+	  <li><%= link_to "#{homeroom.shop_name} (3-#{homeroom.id})", homeroom %></li>
+	  <% end %>
+	<% else %>
+	  <li>登録されていません。</li>
 	<% end %>
 </ul>
