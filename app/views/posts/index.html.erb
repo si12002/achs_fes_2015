@@ -17,7 +17,7 @@
             <%= post.title %>
           </h3>
           <p>
-            <%= post.homeroom.shop_name %> <% if post.homeroom.id < 7 %>(3-<%= post.homeroom.id %>)<% end %> - <%= time_ago_in_words(post.created_at) %>前 
+            <%= post.homeroom.shop_name %> <% if post.homeroom.class_no < 7 %>(3-<%= post.homeroom.class_no %>)<% end %> - <%= time_ago_in_words(post.created_at) %>前 
             <% if current_user.likes.find_by(post_id: post.id) %>
               <%= image_tag "checkmegaphone16.png" %>
             <% else %>

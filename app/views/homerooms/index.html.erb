@@ -4,7 +4,7 @@
 	<li data-role = "list-divider">模擬店一覧</li>
 	<% if @homerooms.any? %>
 	  <% @homerooms.each do |homeroom| %>
-	  <li><%= link_to "#{homeroom.shop_name} (3-#{homeroom.id})", homeroom %></li>
+	  <li><%= link_to "#{homeroom.shop_name} (3-#{homeroom.class_no})", homeroom %></li>
 	  <% end %>
 	<% else %>
 	  <li>登録されていません。</li>

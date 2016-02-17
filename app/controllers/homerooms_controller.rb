@@ -4,7 +4,8 @@ before_action :admin_user, only: [:new, :create]
 
 # 模擬店一覧ページ
 def index
-  @homerooms = Homeroom.order(:id).limit(6) # id順に6つ表示する
+  #@homerooms = Homeroom.order(:id).limit(6) # id順に6つ表示する
+  @homerooms = Homeroom.where(category:5).order("class_no")
 end
 
 # 模擬店詳細ページ
