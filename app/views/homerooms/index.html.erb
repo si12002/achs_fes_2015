@@ -1,5 +1,9 @@
 <% provide(:title, "模擬店一覧") %>
 
+<% if current_user.role_id == 1 %>
+	<%= link_to "データ登録", new_homeroom_path, class: "ui-btn" %>
+<% end %>
+
 <ul data-role = "listview" data-inset="true">
 	<li data-role = "list-divider">模擬店一覧</li>
 	<% if @homerooms.any? %>
