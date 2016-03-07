@@ -12,6 +12,9 @@
 	<%= @homeroom.shop_name %>
   </h1>
   (3-<%= @homeroom.class_no %>)
+  <% if current_user.role_id == 1%>
+    この模擬店のhomeroom_idは<%= @homeroom.id %>です。
+  <% end %>
 </center>
 
 <div id="content">
